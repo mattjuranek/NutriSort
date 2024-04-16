@@ -23,6 +23,7 @@ void loadSearchWindow() {
     bool lowIsSelected = false;
     bool highIsSelected = false;
     string nutrientSelected = "";
+    string userInput = "";
 
     sf::RenderWindow window(sf::VideoMode(800, 600), "NutriSort");
 
@@ -56,6 +57,14 @@ void loadSearchWindow() {
     title.setFillColor(sf::Color::Black);
     title.setStyle(sf::Text::Bold);
     title.setPosition(800 / 2 - title.getLocalBounds().width / 2, 50);
+
+    // Text object for user input
+    sf::Text userInputText;
+    userInputText.setFont(font);
+    userInputText.setCharacterSize(30);
+    userInputText.setStyle(sf::Text::Bold);
+    userInputText.setFillColor(sf::Color::Black);
+    userInputText.setPosition(50, 220);
 
     // Text object for search label
     sf::Text searchLabel;
@@ -150,8 +159,7 @@ void loadSearchWindow() {
     sodiumLabel.setFillColor(sf::Color::Black);
     sodiumLabel.setPosition(650, 380);
 
-
-
+    // Event handling
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
@@ -159,6 +167,39 @@ void loadSearchWindow() {
                 window.close();
             }
 
+            if (event.type == sf::Event::KeyPressed) {
+
+                // If user clicks backspace
+                if (event.key.code == sf::Keyboard::Backspace && !userInput.empty()) {
+
+                    // Remove last character of username
+                    userInput.pop_back();
+                }
+
+                // If user clicks enter while user input is not empty
+                if (event.key.code == sf::Keyboard::Enter && !userInput.empty()) {
+
+                    // Close search window
+                    //TODO: Open search results window
+                    window.close();
+                }
+            }
+
+            // If user enters text
+            if (event.type == sf::Event::TextEntered) {
+
+                // Limit size of user input to 30 characters
+                if (userInput.size() < 35) {
+                    char nameChar  = static_cast<char>(event.text.unicode);
+
+                    // Limit entry to alphabetical characters
+                    if (isalpha(nameChar)) {
+                        userInput += nameChar;
+                    }
+                }
+            }
+
+            // If user clicks mouse button
             if (event.type == sf::Event::MouseButtonPressed) {
                 if (event.mouseButton.button == sf::Mouse::Left) {
                     sf::Vector2i mousePos = sf::Mouse::getPosition(window);
@@ -255,11 +296,13 @@ void loadSearchWindow() {
         // Draw elements
         window.draw(background);
         window.draw(title);
+        window.draw(searchBar);
+        userInputText.setString(userInput + "|");
+        window.draw(userInputText);
         window.draw(searchLabel);
         window.draw(highLabel);
         window.draw(lowLabel);
         window.draw(restrictionLabel);
-        window.draw(searchBar);
         window.draw(highBox);
         window.draw(lowBox);
         window.draw(proteinLabel);
