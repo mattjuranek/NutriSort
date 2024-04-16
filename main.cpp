@@ -22,6 +22,7 @@ void setRect(sf::RectangleShape &rect, float x, float y) {
 void loadSearchWindow() {
     bool lowIsSelected = false;
     bool highIsSelected = false;
+    bool nutrientIsSelected = false;
     string nutrientSelected = "";
     string userInput = "";
 
@@ -177,7 +178,7 @@ void loadSearchWindow() {
                 }
 
                 // If user clicks enter while user input is not empty
-                if (event.key.code == sf::Keyboard::Enter && !userInput.empty()) {
+                if (event.key.code == sf::Keyboard::Enter && !userInput.empty() && nutrientSelected != "" && (lowIsSelected || highIsSelected)) {
 
                     // Close search window
                     //TODO: Open search results window
@@ -206,9 +207,14 @@ void loadSearchWindow() {
 
                     // High button
                     if (highBox.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
-                        if (highBox.getFillColor() == sf::Color::White && !lowIsSelected) {
+                        if (!highIsSelected) {
                             highBox.setFillColor(sf::Color::Black);
                             highIsSelected = true;
+
+                            if (lowIsSelected) {
+                                lowBox.setFillColor(sf::Color::White);
+                                lowIsSelected = false;
+                            }
                         }
                         else {
                             highBox.setFillColor(sf::Color::White);
@@ -218,9 +224,14 @@ void loadSearchWindow() {
 
                     // Low button
                     if (lowBox.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
-                        if (lowBox.getFillColor() == sf::Color::White && !highIsSelected) {
+                        if (!lowIsSelected) {
                             lowBox.setFillColor(sf::Color::Black);
                             lowIsSelected = true;
+
+                            if (highIsSelected) {
+                                highBox.setFillColor(sf::Color::White);
+                                highIsSelected = false;
+                            }
                         }
                         else {
                             lowBox.setFillColor(sf::Color::White);
@@ -230,61 +241,96 @@ void loadSearchWindow() {
 
                     // Protein button
                     if (proteinLabel.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
-                        if (proteinLabel.getStyle() == sf::Text::Regular && nutrientSelected == "") {
+                        if (!nutrientIsSelected || nutrientSelected != "protein") {
                             proteinLabel.setStyle(sf::Text::Bold);
+                            carbLabel.setStyle(sf::Text::Regular);
+                            fatLabel.setStyle(sf::Text::Regular);
+                            sugarLabel.setStyle(sf::Text::Regular);
+                            sodiumLabel.setStyle(sf::Text::Regular);
+
                             nutrientSelected = "protein";
+                            nutrientIsSelected = true;
                         }
-                        else {
+                        else if (nutrientSelected == "protein") {
                             proteinLabel.setStyle(sf::Text::Regular);
                             nutrientSelected = "";
+                            nutrientIsSelected = false;
                         }
                     }
 
                     // Carbohydrate button
-                    if (carbLabel.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
-                        if (carbLabel.getStyle() == sf::Text::Regular && nutrientSelected == "") {
+                    else if (carbLabel.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
+                        if (!nutrientIsSelected || nutrientSelected != "carbohydrate") {
+                            proteinLabel.setStyle(sf::Text::Regular);
                             carbLabel.setStyle(sf::Text::Bold);
+                            fatLabel.setStyle(sf::Text::Regular);
+                            sugarLabel.setStyle(sf::Text::Regular);
+                            sodiumLabel.setStyle(sf::Text::Regular);
+
                             nutrientSelected = "carbohydrate";
+                            nutrientIsSelected = true;
                         }
-                        else {
+                        else if (nutrientSelected == "carbohydrate") {
                             carbLabel.setStyle(sf::Text::Regular);
                             nutrientSelected = "";
+                            nutrientIsSelected = false;
                         }
                     }
 
                     // Fat button
                     if (fatLabel.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
-                        if (fatLabel.getStyle() == sf::Text::Regular && nutrientSelected == "") {
+                        if (!nutrientIsSelected || nutrientSelected != "fat") {
+                            proteinLabel.setStyle(sf::Text::Regular);
+                            carbLabel.setStyle(sf::Text::Regular);
                             fatLabel.setStyle(sf::Text::Bold);
+                            sugarLabel.setStyle(sf::Text::Regular);
+                            sodiumLabel.setStyle(sf::Text::Regular);
+
                             nutrientSelected = "fat";
+                            nutrientIsSelected = true;
                         }
-                        else {
+                        else if (nutrientSelected == "fat") {
                             fatLabel.setStyle(sf::Text::Regular);
                             nutrientSelected = "";
+                            nutrientIsSelected = false;
                         }
                     }
 
                     // Sugar button
                     if (sugarLabel.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
-                        if (sugarLabel.getStyle() == sf::Text::Regular && nutrientSelected == "") {
+                        if (!nutrientIsSelected || nutrientSelected != "sugar") {
+                            proteinLabel.setStyle(sf::Text::Regular);
+                            carbLabel.setStyle(sf::Text::Regular);
+                            fatLabel.setStyle(sf::Text::Regular);
                             sugarLabel.setStyle(sf::Text::Bold);
+                            sodiumLabel.setStyle(sf::Text::Regular);
+
                             nutrientSelected = "sugar";
+                            nutrientIsSelected = true;
                         }
-                        else {
+                        else if (nutrientSelected == "sugar") {
                             sugarLabel.setStyle(sf::Text::Regular);
                             nutrientSelected = "";
+                            nutrientIsSelected = false;
                         }
                     }
 
                     // Sodium button
                     if (sodiumLabel.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
-                        if (sodiumLabel.getStyle() == sf::Text::Regular && nutrientSelected == "") {
+                        if (!nutrientIsSelected || nutrientSelected != "sodium") {
+                            proteinLabel.setStyle(sf::Text::Regular);
+                            carbLabel.setStyle(sf::Text::Regular);
+                            fatLabel.setStyle(sf::Text::Regular);
+                            sugarLabel.setStyle(sf::Text::Regular);
                             sodiumLabel.setStyle(sf::Text::Bold);
+
                             nutrientSelected = "sodium";
+                            nutrientIsSelected = true;
                         }
-                        else {
+                        else if (nutrientSelected == "sodium") {
                             sodiumLabel.setStyle(sf::Text::Regular);
                             nutrientSelected = "";
+                            nutrientIsSelected = false;
                         }
                     }
                 }
@@ -401,8 +447,6 @@ int main() {
 ////        cout << "Sugars: " << food.second.sugars << endl;
 ////        cout << "Sodium: " << food.second.sodium << endl << endl;
 ////    }
-//
-//
 //
 //    return 0;
 //}
