@@ -20,9 +20,9 @@ void setRect(sf::RectangleShape &rect, float x, float y) {
 }
 
 void loadSearchWindow() {
-    bool nutrientIsSelected = false;
     bool lowIsSelected = false;
     bool highIsSelected = false;
+    string nutrientSelected = "";
 
     sf::RenderWindow window(sf::VideoMode(800, 600), "NutriSort");
 
@@ -172,48 +172,63 @@ void loadSearchWindow() {
                         }
                     }
 
+                    // Protein button
                     if (proteinLabel.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
-                        if (proteinLabel.getStyle() == sf::Text::Bold) {
-                            proteinLabel.setStyle(sf::Text::Regular);
-                        }
-                        else {
+                        if (proteinLabel.getStyle() == sf::Text::Regular && nutrientSelected == "") {
                             proteinLabel.setStyle(sf::Text::Bold);
+                            nutrientSelected = "protein";
+                        }
+                        else {
+                            proteinLabel.setStyle(sf::Text::Regular);
+                            nutrientSelected = "";
                         }
                     }
 
+                    // Carbohydrate button
                     if (carbLabel.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
-                        if (carbLabel.getStyle() == sf::Text::Bold) {
-                            carbLabel.setStyle(sf::Text::Regular);
-                        }
-                        else {
+                        if (carbLabel.getStyle() == sf::Text::Regular && nutrientSelected == "") {
                             carbLabel.setStyle(sf::Text::Bold);
+                            nutrientSelected = "carbohydrate";
+                        }
+                        else {
+                            carbLabel.setStyle(sf::Text::Regular);
+                            nutrientSelected = "";
                         }
                     }
 
+                    // Fat button
                     if (fatLabel.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
-                        if (fatLabel.getStyle() == sf::Text::Bold) {
-                            fatLabel.setStyle(sf::Text::Regular);
-                        }
-                        else {
+                        if (fatLabel.getStyle() == sf::Text::Regular && nutrientSelected == "") {
                             fatLabel.setStyle(sf::Text::Bold);
+                            nutrientSelected = "fat";
+                        }
+                        else {
+                            fatLabel.setStyle(sf::Text::Regular);
+                            nutrientSelected = "";
                         }
                     }
 
+                    // Sugar button
                     if (sugarLabel.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
-                        if (sugarLabel.getStyle() == sf::Text::Bold) {
-                            sugarLabel.setStyle(sf::Text::Regular);
+                        if (sugarLabel.getStyle() == sf::Text::Regular && nutrientSelected == "") {
+                            sugarLabel.setStyle(sf::Text::Bold);
+                            nutrientSelected = "sugar";
                         }
                         else {
-                            sugarLabel.setStyle(sf::Text::Bold);
+                            sugarLabel.setStyle(sf::Text::Regular);
+                            nutrientSelected = "";
                         }
                     }
 
+                    // Sodium button
                     if (sodiumLabel.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
-                        if (sodiumLabel.getStyle() == sf::Text::Bold) {
-                            sodiumLabel.setStyle(sf::Text::Regular);
+                        if (sodiumLabel.getStyle() == sf::Text::Regular && nutrientSelected == "") {
+                            sodiumLabel.setStyle(sf::Text::Bold);
+                            nutrientSelected = "sodium";
                         }
                         else {
-                            sodiumLabel.setStyle(sf::Text::Bold);
+                            sodiumLabel.setStyle(sf::Text::Regular);
+                            nutrientSelected = "";
                         }
                     }
                 }
