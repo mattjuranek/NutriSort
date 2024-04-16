@@ -118,40 +118,58 @@ void loadMainWindow()
 int main() {
     string productName;
     map<string, Food> foodMap;
+    int maxPages = 5;
 
     cout << "Enter product name: ";
     cin >> productName;
 
-    auto response = Get(Url{"https://us.openfoodfacts.org/cgi/search.pl"}, Parameters{{"search_terms", productName}, {"action", "process"},{"json", "true"}});
+    auto start = chrono::high_resolution_clock::now();
 
-    json j = json::parse(response.text);
+    // Iterate through response pages (1 to maxPages)
+    for (int pageNumber = 1; pageNumber < maxPages + 1; pageNumber++) {
+        auto response = Get(Url{"https://us.openfoodfacts.org/cgi/search.pl"}, Parameters{{"search_terms", productName}, {"action", "process"},{"json", "true"}, {"page", to_string(pageNumber)}});
 
-    if (j.contains("products") && j["products"].is_array()) {
-        for (const auto& product : j["products"]) {
+        json j = json::parse(response.text);
 
-            // Retrieve food information for each product
-            string id = product.value("_id", "N/A");
-            string name = product.value("product_name", "N/A");
-            double carbohydrates = product["nutriments"].value("carbohydrates", 0.0);
-            double proteins = product["nutriments"].value("proteins", 0.0);
-            double fat = product["nutriments"].value("fat", 0.0);
-            double sugars = product["nutriments"].value("sugars", 0.0);
-            double sodium = product["nutriments"].value("sodium", 0.0);
+        if (j.contains("products") && j["products"].is_array()) {
+            for (const auto& product : j["products"]) {
 
-            // Add food object to foodMap
-            foodMap[id] = Food(id, name, carbohydrates, proteins, fat, sugars, sodium);
+                // Retrieve food information for each product
+                string id = product.value("_id", "N/A");
+                string name = product.value("product_name", "N/A");
+                double carbohydrates = product["nutriments"].value("carbohydrates", 0.0);
+                double proteins = product["nutriments"].value("proteins", 0.0);
+                double fat = product["nutriments"].value("fat", 0.0);
+                double sugars = product["nutriments"].value("sugars", 0.0);
+                double sodium = product["nutriments"].value("sodium", 0.0);
+
+                // Add food object to foodMap
+                foodMap[id] = Food(id, name, carbohydrates, proteins, fat, sugars, sodium);
+            }
         }
     }
 
-    for (auto food : foodMap) {
-        cout << "ID: " << food.first << endl;
-        cout << "Name: " << food.second.name << endl;
-        cout << "Carbohydrates: " << food.second.carbohydrates << endl;
-        cout << "Proteins: " << food.second.proteins << endl;
-        cout << "Fat: " << food.second.fat << endl;
-        cout << "Sugars: " << food.second.sugars << endl;
-        cout << "Sodium: " << food.second.sodium << endl << endl;
-    }
+    // Stop the timer
+    auto stop = chrono::high_resolution_clock::now();
+
+    // Calculate duration
+    auto duration = chrono::duration_cast<chrono::seconds>(stop - start);
+
+//    // Output duration
+//    cout << "Time to process: " << duration.count() << " seconds" << endl;
+
+
+//    // Output food information for each product
+//    for (auto food : foodMap) {
+//        cout << "ID: " << food.first << endl;
+//        cout << "Name: " << food.second.name << endl;
+//        cout << "Carbohydrates: " << food.second.carbohydrates << endl;
+//        cout << "Proteins: " << food.second.proteins << endl;
+//        cout << "Fat: " << food.second.fat << endl;
+//        cout << "Sugars: " << food.second.sugars << endl;
+//        cout << "Sodium: " << food.second.sodium << endl << endl;
+//    }
+
 
 
     return 0;
