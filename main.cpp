@@ -26,10 +26,25 @@ void loadSearchWindow() {
 
     sf::RenderWindow window(sf::VideoMode(800, 600), "NutriSort");
 
+    // Load background image
+    sf::Texture texture;
+    if (!texture.loadFromFile("../background.jpg")) {
+        return;
+    }
+
+    // Create sprite for background image
+    sf::Sprite background(texture);
+
+    // Calculate scale factors
+    float scaleX = window.getSize().x / float(texture.getSize().x);
+    float scaleY = window.getSize().x / float(texture.getSize().y);
+
+    // Set scale of background sprite
+    background.setScale(scaleX, scaleY);
+
     // Load font file
     sf::Font font;
-    if (!font.loadFromFile("../font.ttf"))
-    {
+    if (!font.loadFromFile("../font.ttf")) {
         return;
     }
 
@@ -46,7 +61,7 @@ void loadSearchWindow() {
     sf::Text searchLabel;
     searchLabel.setFont(font);
     searchLabel.setString("Search Food:");
-    searchLabel.setCharacterSize(24);
+    searchLabel.setCharacterSize(32);
     searchLabel.setFillColor(sf::Color::Black);
     searchLabel.setPosition(50, 180);
 
@@ -91,7 +106,7 @@ void loadSearchWindow() {
     sf::Text restrictionLabel;
     restrictionLabel.setFont(font);
     restrictionLabel.setString("Select Nutrient:");
-    restrictionLabel.setCharacterSize(24);
+    restrictionLabel.setCharacterSize(32);
     restrictionLabel.setFillColor(sf::Color::Black);
     restrictionLabel.setPosition(50, 300);
 
@@ -238,6 +253,7 @@ void loadSearchWindow() {
         window.clear(sf::Color(250, 214, 140));
 
         // Draw elements
+        window.draw(background);
         window.draw(title);
         window.draw(searchLabel);
         window.draw(highLabel);
