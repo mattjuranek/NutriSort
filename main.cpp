@@ -193,7 +193,7 @@ void loadSearchWindow() {
                     char nameChar  = static_cast<char>(event.text.unicode);
 
                     // Limit entry to alphabetical characters
-                    if (isalpha(nameChar)) {
+                    if (isalpha(nameChar) || nameChar == ' ') {
                         userInput += nameChar;
                     }
                 }
