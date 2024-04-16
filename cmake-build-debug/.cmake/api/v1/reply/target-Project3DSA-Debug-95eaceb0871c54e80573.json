@@ -34,7 +34,7 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 31,
+				"line" : 35,
 				"parent" : 0
 			},
 			{
@@ -89,6 +89,11 @@
 				{
 					"backtrace" : 2,
 					"path" : "/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/curl-build/include/curl"
+				},
+				{
+					"backtrace" : 2,
+					"isSystem" : true,
+					"path" : "/opt/homebrew/include"
 				}
 			],
 			"language" : "CXX",
@@ -132,12 +137,22 @@
 				"role" : "flags"
 			},
 			{
-				"fragment" : "-Wl,-rpath,/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/cpr-build/cpr -Wl,-rpath,/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/curl-build/lib",
+				"fragment" : "-Wl,-rpath,/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/cpr-build/cpr -Wl,-rpath,/opt/homebrew/lib -Wl,-rpath,/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/curl-build/lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
 				"fragment" : "_deps/cpr-build/cpr/libcpr.1.6.dylib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "/opt/homebrew/lib/libsfml-graphics.2.6.1.dylib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "/opt/homebrew/lib/libsfml-audio.2.6.1.dylib",
 				"role" : "libraries"
 			},
 			{
@@ -156,6 +171,16 @@
 			{
 				"backtrace" : 6,
 				"fragment" : "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/usr/lib/libz.tbd",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "/opt/homebrew/lib/libsfml-window.2.6.1.dylib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "/opt/homebrew/lib/libsfml-system.2.6.1.dylib",
 				"role" : "libraries"
 			}
 		],

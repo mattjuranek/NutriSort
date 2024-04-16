@@ -28,4 +28,8 @@ if(json_POPULATED)
     include_directories(${json_SOURCE_DIR}/single_include)
 endif()
 
-target_link_libraries(Project3DSA PRIVATE cpr::cpr)
+set(SFML_DIR "<sfml root prefix>/lib/cmake/SFML")
+
+find_package(SFML 2.5.1 COMPONENTS system window graphics audio REQUIRED)
+
+target_link_libraries(Project3DSA PRIVATE cpr::cpr sfml-system sfml-window sfml-graphics sfml-audio)
