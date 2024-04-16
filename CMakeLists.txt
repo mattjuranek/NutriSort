@@ -3,7 +3,9 @@ project(Project3DSA)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Project3DSA main.cpp)
+add_executable(Project3DSA main.cpp
+        Food.h
+        Food.cpp)
 
 include(FetchContent)
 

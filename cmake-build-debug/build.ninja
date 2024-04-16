@@ -56,6 +56,13 @@ build CMakeFiles/Project3DSA.dir/main.cpp.o: CXX_COMPILER__Project3DSA_unscanned
   OBJECT_DIR = CMakeFiles/Project3DSA.dir
   OBJECT_FILE_DIR = CMakeFiles/Project3DSA.dir
 
+build CMakeFiles/Project3DSA.dir/Food.cpp.o: CXX_COMPILER__Project3DSA_unscanned_Debug /Users/matthewjuranek/Project3DSA/Food.cpp || cmake_object_order_depends_target_Project3DSA
+  DEP_FILE = CMakeFiles/Project3DSA.dir/Food.cpp.o.d
+  FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.2 -fcolor-diagnostics
+  INCLUDES = -I/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/json-src/single_include -I/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/cpr-src/include -I/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/curl-src/include -I/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/curl-build/include/curl
+  OBJECT_DIR = CMakeFiles/Project3DSA.dir
+  OBJECT_FILE_DIR = CMakeFiles/Project3DSA.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Project3DSA
@@ -64,7 +71,7 @@ build CMakeFiles/Project3DSA.dir/main.cpp.o: CXX_COMPILER__Project3DSA_unscanned
 #############################################
 # Link the executable Project3DSA
 
-build Project3DSA: CXX_EXECUTABLE_LINKER__Project3DSA_Debug CMakeFiles/Project3DSA.dir/main.cpp.o | _deps/cpr-build/cpr/libcpr.1.6.dylib _deps/curl-build/lib/libcurl-d.dylib /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/usr/lib/libz.tbd || _deps/cpr-build/cpr/libcpr.dylib _deps/curl-build/lib/libcurl-d.dylib _deps/cpr-build/cpr/libcpr.dylib
+build Project3DSA: CXX_EXECUTABLE_LINKER__Project3DSA_Debug CMakeFiles/Project3DSA.dir/main.cpp.o CMakeFiles/Project3DSA.dir/Food.cpp.o | _deps/cpr-build/cpr/libcpr.1.6.dylib _deps/curl-build/lib/libcurl-d.dylib /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/usr/lib/libz.tbd || _deps/cpr-build/cpr/libcpr.dylib _deps/curl-build/lib/libcurl-d.dylib _deps/cpr-build/cpr/libcpr.dylib
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.2
   LINK_LIBRARIES = -Wl,-rpath,/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/cpr-build/cpr -Wl,-rpath,/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/curl-build/lib  _deps/cpr-build/cpr/libcpr.1.6.dylib  _deps/curl-build/lib/libcurl-d.dylib  -Xlinker -framework -Xlinker CoreFoundation  -Xlinker -framework -Xlinker Security  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/usr/lib/libz.tbd
   OBJECT_DIR = CMakeFiles/Project3DSA.dir
