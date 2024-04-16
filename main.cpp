@@ -42,35 +42,170 @@ void loadSearchWindow() {
     searchLabel.setString("Search Food:");
     searchLabel.setCharacterSize(24);
     searchLabel.setFillColor(sf::Color::Black);
-    searchLabel.setPosition(50, 260);
+    searchLabel.setPosition(50, 180);
+
+    // Text object for "High"
+    sf::Text highLabel;
+    highLabel.setFont(font);
+    highLabel.setString("High");
+    highLabel.setCharacterSize(24);
+    highLabel.setFillColor(sf::Color::Black);
+    highLabel.setPosition(500, 450);
+
+    // Text object for "Low"
+    sf::Text lowLabel;
+    lowLabel.setFont(font);
+    lowLabel.setString("Low");
+    lowLabel.setCharacterSize(24);
+    lowLabel.setFillColor(sf::Color::Black);
+    lowLabel.setPosition(250, 450);
+
+    // Rectangle for low select box
+    sf::RectangleShape lowBox(sf::Vector2f(20, 20));
+    lowBox.setFillColor(sf::Color::White);
+    lowBox.setOutlineColor(sf::Color::Black);
+    lowBox.setOutlineThickness(1);
+    lowBox.setPosition(220, 455);
+
+    // Rectangle for high select box
+    sf::RectangleShape highBox(sf::Vector2f(20, 20));
+    highBox.setFillColor(sf::Color::White);
+    highBox.setOutlineColor(sf::Color::Black);
+    highBox.setOutlineThickness(1);
+    highBox.setPosition(470, 455);
 
     // Rectangle for search bar
     sf::RectangleShape searchBar(sf::Vector2f(700, 40));
     searchBar.setFillColor(sf::Color::White);
     searchBar.setOutlineColor(sf::Color::Black);
     searchBar.setOutlineThickness(2);
-    searchBar.setPosition(50, 300);
+    searchBar.setPosition(50, 220);
 
-    // Text object for "Search Food:"
+    // Text object for nutrient select
     sf::Text restrictionLabel;
     restrictionLabel.setFont(font);
-    restrictionLabel.setString("Dietary Restriction:");
+    restrictionLabel.setString("Select Nutrient:");
     restrictionLabel.setCharacterSize(24);
     restrictionLabel.setFillColor(sf::Color::Black);
-    restrictionLabel.setPosition(50, 360);
+    restrictionLabel.setPosition(50, 300);
 
-    // Rectangle for second search bar
-    sf::RectangleShape restrictionBar(sf::Vector2f(700, 40));
-    restrictionBar.setFillColor(sf::Color::White);
-    restrictionBar.setOutlineColor(sf::Color::Black);
-    restrictionBar.setOutlineThickness(2);
-    restrictionBar.setPosition(50, 400);
+    // Text object for protein
+    sf::Text proteinLabel;
+    proteinLabel.setFont(font);
+    proteinLabel.setString("Protein");
+    proteinLabel.setCharacterSize(20);
+    proteinLabel.setFillColor(sf::Color::Black);
+    proteinLabel.setPosition(50, 380);
+
+    // Text object for carbs
+    sf::Text carbLabel;
+    carbLabel.setFont(font);
+    carbLabel.setString("Carbohydrates");
+    carbLabel.setCharacterSize(20);
+    carbLabel.setFillColor(sf::Color::Black);
+    carbLabel.setPosition(200, 380);
+
+    // Text object for fat
+    sf::Text fatLabel;
+    fatLabel.setFont(font);
+    fatLabel.setString("Fat");
+    fatLabel.setCharacterSize(20);
+    fatLabel.setFillColor(sf::Color::Black);
+    fatLabel.setPosition(400, 380);
+
+    // Text object for sugar
+    sf::Text sugarLabel;
+    sugarLabel.setFont(font);
+    sugarLabel.setString("Sugar");
+    sugarLabel.setCharacterSize(20);
+    sugarLabel.setFillColor(sf::Color::Black);
+    sugarLabel.setPosition(500, 380);
+
+    // Text object for sodium
+    sf::Text sodiumLabel;
+    sodiumLabel.setFont(font);
+    sodiumLabel.setString("Sodium");
+    sodiumLabel.setCharacterSize(20);
+    sodiumLabel.setFillColor(sf::Color::Black);
+    sodiumLabel.setPosition(650, 380);
+
+
 
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
-            if (event.type == sf::Event::Closed)
+            if (event.type == sf::Event::Closed) {
                 window.close();
+            }
+
+            if (event.type == sf::Event::MouseButtonPressed) {
+                if (event.mouseButton.button == sf::Mouse::Left) {
+                    sf::Vector2i mousePos = sf::Mouse::getPosition(window);
+
+                    if (highBox.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
+                        if (highBox.getFillColor() == sf::Color::White) {
+                            highBox.setFillColor(sf::Color::Black);
+                        }
+                        else {
+                            highBox.setFillColor(sf::Color::White);
+                        }
+                    }
+
+                    if (lowBox.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
+                        if (lowBox.getFillColor() == sf::Color::White) {
+                            lowBox.setFillColor(sf::Color::Black);
+                        }
+                        else {
+                            lowBox.setFillColor(sf::Color::White);
+                        }
+                    }
+
+                    if (proteinLabel.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
+                        if (proteinLabel.getStyle() == sf::Text::Bold) {
+                            proteinLabel.setStyle(sf::Text::Regular);
+                        }
+                        else {
+                            proteinLabel.setStyle(sf::Text::Bold);
+                        }
+                    }
+
+                    if (carbLabel.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
+                        if (carbLabel.getStyle() == sf::Text::Bold) {
+                            carbLabel.setStyle(sf::Text::Regular);
+                        }
+                        else {
+                            carbLabel.setStyle(sf::Text::Bold);
+                        }
+                    }
+
+                    if (fatLabel.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
+                        if (fatLabel.getStyle() == sf::Text::Bold) {
+                            fatLabel.setStyle(sf::Text::Regular);
+                        }
+                        else {
+                            fatLabel.setStyle(sf::Text::Bold);
+                        }
+                    }
+
+                    if (sugarLabel.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
+                        if (sugarLabel.getStyle() == sf::Text::Bold) {
+                            sugarLabel.setStyle(sf::Text::Regular);
+                        }
+                        else {
+                            sugarLabel.setStyle(sf::Text::Bold);
+                        }
+                    }
+
+                    if (sodiumLabel.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
+                        if (sodiumLabel.getStyle() == sf::Text::Bold) {
+                            sodiumLabel.setStyle(sf::Text::Regular);
+                        }
+                        else {
+                            sodiumLabel.setStyle(sf::Text::Bold);
+                        }
+                    }
+                }
+            }
         }
 
         window.clear(sf::Color(250, 214, 140));
@@ -78,9 +213,17 @@ void loadSearchWindow() {
         // Draw elements
         window.draw(title);
         window.draw(searchLabel);
+        window.draw(highLabel);
+        window.draw(lowLabel);
         window.draw(restrictionLabel);
-        window.draw(restrictionBar);
         window.draw(searchBar);
+        window.draw(highBox);
+        window.draw(lowBox);
+        window.draw(proteinLabel);
+        window.draw(carbLabel);
+        window.draw(fatLabel);
+        window.draw(sugarLabel);
+        window.draw(sodiumLabel);
 
         // Update window
         window.display();
