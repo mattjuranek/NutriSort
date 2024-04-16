@@ -41,12 +41,12 @@ endif()
 
 execute_process(
   COMMAND "/usr/bin/git"
-          checkout "v3.9.1" --
+          checkout "v3.11.2" --
   WORKING_DIRECTORY "/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/json-src"
   RESULT_VARIABLE error_code
 )
 if(error_code)
-  message(FATAL_ERROR "Failed to checkout tag: 'v3.9.1'")
+  message(FATAL_ERROR "Failed to checkout tag: 'v3.11.2'")
 endif()
 
 set(init_submodules TRUE)

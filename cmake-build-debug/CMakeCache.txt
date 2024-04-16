@@ -23,7 +23,7 @@ BUILD_GMOCK:BOOL=ON
 //Build shared libraries
 BUILD_SHARED_LIBS:BOOL=ON
 
-//Build tests
+//Build the testing tree.
 BUILD_TESTING:BOOL=OFF
 
 //Path to a program.
@@ -548,8 +548,26 @@ INSTALL_GTEST:BOOL=ON
 //Copy minigzip and minideflate during install
 INSTALL_UTILS:BOOL=OFF
 
+//Enable the 32bit unit test (ON/OFF/AUTO/ONLY).
+JSON_32bitTest:STRING=AUTO
+
 //Build the unit tests when BUILD_TESTING is enabled.
 JSON_BuildTests:BOOL=ON
+
+//Enable CI build targets.
+JSON_CI:BOOL=OFF
+
+//Use extended diagnostic messages.
+JSON_Diagnostics:BOOL=OFF
+
+//Disable default integer enum serialization.
+JSON_DisableEnumSerialization:BOOL=OFF
+
+//Skip expensive/slow tests.
+JSON_FastTests:BOOL=OFF
+
+//Place use-defined string literals in the global namespace.
+JSON_GlobalUDLs:BOOL=ON
 
 //Enable implicit conversions.
 JSON_ImplicitConversions:BOOL=ON
@@ -557,8 +575,20 @@ JSON_ImplicitConversions:BOOL=ON
 //Install CMake targets during install step.
 JSON_Install:BOOL=ON
 
+//Enable legacy discarded value comparison.
+JSON_LegacyDiscardedValueComparison:BOOL=OFF
+
 //Use non-amalgamated version of the library.
 JSON_MultipleHeaders:BOOL=OFF
+
+//Include as system headers (skip for clang-tidy).
+JSON_SystemInclude:BOOL=OFF
+
+//The list of standards to test explicitly.
+JSON_TestStandards:STRING=
+
+//Execute test suite with Valgrind.
+JSON_Valgrind:BOOL=OFF
 
 //Single output directory for building all libraries.
 LIBRARY_OUTPUT_PATH:PATH=
@@ -571,6 +601,9 @@ LIBSSH2_LIBRARY:FILEPATH=LIBSSH2_LIBRARY-NOTFOUND
 
 //Installation directory for libraries
 LIB_INSTALL_DIR:PATH=/usr/local/lib
+
+//Path to a program.
+LSB_RELEASE_COMMAND:FILEPATH=LSB_RELEASE_COMMAND-NOTFOUND
 
 //Installation directory for manual pages
 MAN_INSTALL_DIR:PATH=/usr/local/share/man
@@ -611,6 +644,18 @@ RANDOM_FILE:FILEPATH=/dev/urandom
 //Path to a library.
 SECURITY_FRAMEWORK:FILEPATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/System/Library/Frameworks/Security.framework
 
+//The directory containing a CMake configuration file for SFML.
+SFML_DIR:PATH=/opt/homebrew/lib/cmake/SFML
+
+//Path to a file.
+SFML_DOC_DIR:PATH=/opt/homebrew/share/doc/SFML
+
+//Path to a program.
+SW_VERS_COMMAND:FILEPATH=/usr/bin/sw_vers
+
+//Path to a program.
+UNAME_COMMAND:FILEPATH=/usr/bin/uname
+
 //Use libidn2 for IDN support
 USE_LIBIDN2:BOOL=ON
 
@@ -622,6 +667,9 @@ USE_NGTCP2:BOOL=OFF
 
 //Use quiche library for HTTP/3 support
 USE_QUICHE:BOOL=OFF
+
+//Path to a program.
+VER_COMMAND:FILEPATH=VER_COMMAND-NOTFOUND
 
 //Build with ACLE
 WITH_ACLE:BOOL=ON
@@ -750,6 +798,9 @@ mongoose_SOURCE_DIR:STATIC=/Users/matthewjuranek/Project3DSA/cmake-build-debug/_
 
 //Value Computed by CMake
 nlohmann_json_BINARY_DIR:STATIC=/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/json-build
+
+//The directory containing a CMake configuration file for nlohmann_json.
+nlohmann_json_DIR:PATH=nlohmann_json_DIR-NOTFOUND
 
 //Value Computed by CMake
 nlohmann_json_IS_TOP_LEVEL:STATIC=OFF
@@ -932,7 +983,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=11
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=23
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -1044,6 +1095,8 @@ DETECT_SSL_BACKEND:INTERNAL=ON
 ENABLE_IPV6-ADVANCED:INTERNAL=1
 ENABLE_SSL_TESTS:INTERNAL=OFF
 FETCHCONTENT_QUIET:INTERNAL=OFF
+//Details about finding Git
+FIND_PACKAGE_MESSAGE_DETAILS_Git:INTERNAL=[/usr/bin/git][v2.39.3 (Apple Git-146)()]
 //Details about finding Perl
 FIND_PACKAGE_MESSAGE_DETAILS_Perl:INTERNAL=[/usr/bin/perl][v5.30.3()]
 //Details about finding PythonInterp
@@ -1454,6 +1507,8 @@ HAVE__OFF64_T:INTERNAL=FALSE
 HAVE__STRTOI64:INTERNAL=
 //Result of TRY_COMPILE
 HAVE___OFF64_T:INTERNAL=FALSE
+//Result of TRY_COMPILE
+HAVE_sizeof_size_t:INTERNAL=TRUE
 //ADVANCED property for variable: HTTP_ONLY
 HTTP_ONLY-ADVANCED:INTERNAL=1
 //disables all protocols except HTTP (This overrides all CURL_DISABLE_*
@@ -1467,7 +1522,7 @@ LEAK_SANITIZER_AVAILABLE:INTERNAL=
 LIBSSH2_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: LIBSSH2_LIBRARY
 LIBSSH2_LIBRARY-ADVANCED:INTERNAL=1
-NLOHMANN_JSON_CONFIG_INSTALL_DIR:INTERNAL=lib/cmake/nlohmann_json
+NLOHMANN_JSON_CONFIG_INSTALL_DIR:INTERNAL=share/cmake/nlohmann_json
 //Have library c
 NOT_NEED_LIBNSL:INTERNAL=1
 //CHECK_TYPE_SIZE: off64_t unknown
@@ -1576,5 +1631,7 @@ gtest_disable_pthreads-ADVANCED:INTERNAL=1
 gtest_force_shared_crt-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: gtest_hide_internal_symbols
 gtest_hide_internal_symbols-ADVANCED:INTERNAL=1
+//CHECK_TYPE_SIZE: sizeof(size_t)
+sizeof_size_t:INTERNAL=8
 targets_export_name:INTERNAL=GTestTargets
 

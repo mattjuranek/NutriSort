@@ -29889,3 +29889,662 @@ events:
       variable: "run_result_unused"
       cached: true
 ...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cmake-build-debug/_deps/zlib-src/cmake/detect-arch.cmake:24 (try_run)"
+      - "cmake-build-debug/_deps/zlib-src/CMakeLists.txt:54 (include)"
+    directories:
+      source: "/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp"
+      binary: "/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_OSX_ARCHITECTURES: ""
+      CMAKE_OSX_DEPLOYMENT_TARGET: "14.2"
+      CMAKE_OSX_SYSROOT: "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /Applications/CLion.app/Contents/bin/ninja/mac/aarch64/ninja -v cmTC_45d41
+        [1/2] /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.2 -fcolor-diagnostics -MD -MT CMakeFiles/cmTC_45d41.dir/detect-arch.c.o -MF CMakeFiles/cmTC_45d41.dir/detect-arch.c.o.d -o CMakeFiles/cmTC_45d41.dir/detect-arch.c.o -c /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c
+        FAILED: CMakeFiles/cmTC_45d41.dir/detect-arch.c.o 
+        /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.2 -fcolor-diagnostics -MD -MT CMakeFiles/cmTC_45d41.dir/detect-arch.c.o -MF CMakeFiles/cmTC_45d41.dir/detect-arch.c.o.d -o CMakeFiles/cmTC_45d41.dir/detect-arch.c.o -c /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c
+        /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c:16:6: error: archfound aarch64
+            #error archfound aarch64
+             ^
+        1 error generated.
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cmake-build-debug/_deps/zlib-src/cmake/detect-arch.cmake:24 (try_run)"
+      - "cmake-build-debug/_deps/zlib-src/CMakeLists.txt:54 (include)"
+    directories:
+      source: "/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp"
+      binary: "/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_OSX_ARCHITECTURES: ""
+      CMAKE_OSX_DEPLOYMENT_TARGET: "14.2"
+      CMAKE_OSX_SYSROOT: "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /Applications/CLion.app/Contents/bin/ninja/mac/aarch64/ninja -v cmTC_3d07f
+        [1/2] /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.2 -fcolor-diagnostics -MD -MT CMakeFiles/cmTC_3d07f.dir/detect-arch.c.o -MF CMakeFiles/cmTC_3d07f.dir/detect-arch.c.o.d -o CMakeFiles/cmTC_3d07f.dir/detect-arch.c.o -c /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c
+        FAILED: CMakeFiles/cmTC_3d07f.dir/detect-arch.c.o 
+        /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.2 -fcolor-diagnostics -MD -MT CMakeFiles/cmTC_3d07f.dir/detect-arch.c.o -MF CMakeFiles/cmTC_3d07f.dir/detect-arch.c.o.d -o CMakeFiles/cmTC_3d07f.dir/detect-arch.c.o -c /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c
+        /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c:16:6: error: archfound aarch64
+            #error archfound aarch64
+             ^
+        1 error generated.
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cmake-build-debug/_deps/zlib-src/cmake/detect-arch.cmake:24 (try_run)"
+      - "cmake-build-debug/_deps/zlib-src/CMakeLists.txt:54 (include)"
+    directories:
+      source: "/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp"
+      binary: "/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_OSX_ARCHITECTURES: ""
+      CMAKE_OSX_DEPLOYMENT_TARGET: "14.2"
+      CMAKE_OSX_SYSROOT: "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /Applications/CLion.app/Contents/bin/ninja/mac/aarch64/ninja -v cmTC_cd9bb
+        [1/2] /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.2 -fcolor-diagnostics -MD -MT CMakeFiles/cmTC_cd9bb.dir/detect-arch.c.o -MF CMakeFiles/cmTC_cd9bb.dir/detect-arch.c.o.d -o CMakeFiles/cmTC_cd9bb.dir/detect-arch.c.o -c /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c
+        FAILED: CMakeFiles/cmTC_cd9bb.dir/detect-arch.c.o 
+        /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.2 -fcolor-diagnostics -MD -MT CMakeFiles/cmTC_cd9bb.dir/detect-arch.c.o -MF CMakeFiles/cmTC_cd9bb.dir/detect-arch.c.o.d -o CMakeFiles/cmTC_cd9bb.dir/detect-arch.c.o -c /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c
+        /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c:16:6: error: archfound aarch64
+            #error archfound aarch64
+             ^
+        1 error generated.
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cmake-build-debug/_deps/zlib-src/cmake/detect-arch.cmake:24 (try_run)"
+      - "cmake-build-debug/_deps/zlib-src/CMakeLists.txt:54 (include)"
+    directories:
+      source: "/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp"
+      binary: "/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_OSX_ARCHITECTURES: ""
+      CMAKE_OSX_DEPLOYMENT_TARGET: "14.2"
+      CMAKE_OSX_SYSROOT: "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /Applications/CLion.app/Contents/bin/ninja/mac/aarch64/ninja -v cmTC_792ac
+        [1/2] /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.2 -fcolor-diagnostics -MD -MT CMakeFiles/cmTC_792ac.dir/detect-arch.c.o -MF CMakeFiles/cmTC_792ac.dir/detect-arch.c.o.d -o CMakeFiles/cmTC_792ac.dir/detect-arch.c.o -c /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c
+        FAILED: CMakeFiles/cmTC_792ac.dir/detect-arch.c.o 
+        /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.2 -fcolor-diagnostics -MD -MT CMakeFiles/cmTC_792ac.dir/detect-arch.c.o -MF CMakeFiles/cmTC_792ac.dir/detect-arch.c.o.d -o CMakeFiles/cmTC_792ac.dir/detect-arch.c.o -c /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c
+        /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c:16:6: error: archfound aarch64
+            #error archfound aarch64
+             ^
+        1 error generated.
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cmake-build-debug/_deps/zlib-src/cmake/detect-arch.cmake:24 (try_run)"
+      - "cmake-build-debug/_deps/zlib-src/CMakeLists.txt:54 (include)"
+    directories:
+      source: "/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp"
+      binary: "/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_OSX_ARCHITECTURES: ""
+      CMAKE_OSX_DEPLOYMENT_TARGET: "14.2"
+      CMAKE_OSX_SYSROOT: "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /Applications/CLion.app/Contents/bin/ninja/mac/aarch64/ninja -v cmTC_c114e
+        [1/2] /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.2 -fcolor-diagnostics -MD -MT CMakeFiles/cmTC_c114e.dir/detect-arch.c.o -MF CMakeFiles/cmTC_c114e.dir/detect-arch.c.o.d -o CMakeFiles/cmTC_c114e.dir/detect-arch.c.o -c /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c
+        FAILED: CMakeFiles/cmTC_c114e.dir/detect-arch.c.o 
+        /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.2 -fcolor-diagnostics -MD -MT CMakeFiles/cmTC_c114e.dir/detect-arch.c.o -MF CMakeFiles/cmTC_c114e.dir/detect-arch.c.o.d -o CMakeFiles/cmTC_c114e.dir/detect-arch.c.o -c /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c
+        /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c:16:6: error: archfound aarch64
+            #error archfound aarch64
+             ^
+        1 error generated.
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cmake-build-debug/_deps/zlib-src/cmake/detect-arch.cmake:24 (try_run)"
+      - "cmake-build-debug/_deps/zlib-src/CMakeLists.txt:54 (include)"
+    directories:
+      source: "/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp"
+      binary: "/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_OSX_ARCHITECTURES: ""
+      CMAKE_OSX_DEPLOYMENT_TARGET: "14.2"
+      CMAKE_OSX_SYSROOT: "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /Applications/CLion.app/Contents/bin/ninja/mac/aarch64/ninja -v cmTC_8d090
+        [1/2] /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.2 -fcolor-diagnostics -MD -MT CMakeFiles/cmTC_8d090.dir/detect-arch.c.o -MF CMakeFiles/cmTC_8d090.dir/detect-arch.c.o.d -o CMakeFiles/cmTC_8d090.dir/detect-arch.c.o -c /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c
+        FAILED: CMakeFiles/cmTC_8d090.dir/detect-arch.c.o 
+        /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.2 -fcolor-diagnostics -MD -MT CMakeFiles/cmTC_8d090.dir/detect-arch.c.o -MF CMakeFiles/cmTC_8d090.dir/detect-arch.c.o.d -o CMakeFiles/cmTC_8d090.dir/detect-arch.c.o -c /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c
+        /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c:16:6: error: archfound aarch64
+            #error archfound aarch64
+             ^
+        1 error generated.
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cmake-build-debug/_deps/zlib-src/cmake/detect-arch.cmake:24 (try_run)"
+      - "cmake-build-debug/_deps/zlib-src/CMakeLists.txt:54 (include)"
+    directories:
+      source: "/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp"
+      binary: "/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_OSX_ARCHITECTURES: ""
+      CMAKE_OSX_DEPLOYMENT_TARGET: "14.2"
+      CMAKE_OSX_SYSROOT: "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /Applications/CLion.app/Contents/bin/ninja/mac/aarch64/ninja -v cmTC_e76c0
+        [1/2] /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.2 -fcolor-diagnostics -MD -MT CMakeFiles/cmTC_e76c0.dir/detect-arch.c.o -MF CMakeFiles/cmTC_e76c0.dir/detect-arch.c.o.d -o CMakeFiles/cmTC_e76c0.dir/detect-arch.c.o -c /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c
+        FAILED: CMakeFiles/cmTC_e76c0.dir/detect-arch.c.o 
+        /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.2 -fcolor-diagnostics -MD -MT CMakeFiles/cmTC_e76c0.dir/detect-arch.c.o -MF CMakeFiles/cmTC_e76c0.dir/detect-arch.c.o.d -o CMakeFiles/cmTC_e76c0.dir/detect-arch.c.o -c /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c
+        /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c:16:6: error: archfound aarch64
+            #error archfound aarch64
+             ^
+        1 error generated.
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cmake-build-debug/_deps/zlib-src/cmake/detect-arch.cmake:24 (try_run)"
+      - "cmake-build-debug/_deps/zlib-src/CMakeLists.txt:54 (include)"
+    directories:
+      source: "/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp"
+      binary: "/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_OSX_ARCHITECTURES: ""
+      CMAKE_OSX_DEPLOYMENT_TARGET: "14.2"
+      CMAKE_OSX_SYSROOT: "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /Applications/CLion.app/Contents/bin/ninja/mac/aarch64/ninja -v cmTC_7aec6
+        [1/2] /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.2 -MD -MT CMakeFiles/cmTC_7aec6.dir/detect-arch.c.o -MF CMakeFiles/cmTC_7aec6.dir/detect-arch.c.o.d -o CMakeFiles/cmTC_7aec6.dir/detect-arch.c.o -c /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c
+        \x1b[31mFAILED: \x1b[0mCMakeFiles/cmTC_7aec6.dir/detect-arch.c.o 
+        /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.2 -MD -MT CMakeFiles/cmTC_7aec6.dir/detect-arch.c.o -MF CMakeFiles/cmTC_7aec6.dir/detect-arch.c.o.d -o CMakeFiles/cmTC_7aec6.dir/detect-arch.c.o -c /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c
+        /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c:16:6: error: archfound aarch64
+            #error archfound aarch64
+             ^
+        1 error generated.
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cmake-build-debug/_deps/zlib-src/cmake/detect-arch.cmake:24 (try_run)"
+      - "cmake-build-debug/_deps/zlib-src/CMakeLists.txt:54 (include)"
+    directories:
+      source: "/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp"
+      binary: "/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_OSX_ARCHITECTURES: ""
+      CMAKE_OSX_DEPLOYMENT_TARGET: "14.2"
+      CMAKE_OSX_SYSROOT: "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /Applications/CLion.app/Contents/bin/ninja/mac/aarch64/ninja -v cmTC_fe5b3
+        [1/2] /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.2 -MD -MT CMakeFiles/cmTC_fe5b3.dir/detect-arch.c.o -MF CMakeFiles/cmTC_fe5b3.dir/detect-arch.c.o.d -o CMakeFiles/cmTC_fe5b3.dir/detect-arch.c.o -c /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c
+        \x1b[31mFAILED: \x1b[0mCMakeFiles/cmTC_fe5b3.dir/detect-arch.c.o 
+        /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.2 -MD -MT CMakeFiles/cmTC_fe5b3.dir/detect-arch.c.o -MF CMakeFiles/cmTC_fe5b3.dir/detect-arch.c.o.d -o CMakeFiles/cmTC_fe5b3.dir/detect-arch.c.o -c /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c
+        /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c:16:6: error: archfound aarch64
+            #error archfound aarch64
+             ^
+        1 error generated.
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cmake-build-debug/_deps/zlib-src/cmake/detect-arch.cmake:24 (try_run)"
+      - "cmake-build-debug/_deps/zlib-src/CMakeLists.txt:54 (include)"
+    directories:
+      source: "/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp"
+      binary: "/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_OSX_ARCHITECTURES: ""
+      CMAKE_OSX_DEPLOYMENT_TARGET: "14.2"
+      CMAKE_OSX_SYSROOT: "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /Applications/CLion.app/Contents/bin/ninja/mac/aarch64/ninja -v cmTC_57189
+        [1/2] /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.2 -MD -MT CMakeFiles/cmTC_57189.dir/detect-arch.c.o -MF CMakeFiles/cmTC_57189.dir/detect-arch.c.o.d -o CMakeFiles/cmTC_57189.dir/detect-arch.c.o -c /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c
+        \x1b[31mFAILED: \x1b[0mCMakeFiles/cmTC_57189.dir/detect-arch.c.o 
+        /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.2 -MD -MT CMakeFiles/cmTC_57189.dir/detect-arch.c.o -MF CMakeFiles/cmTC_57189.dir/detect-arch.c.o.d -o CMakeFiles/cmTC_57189.dir/detect-arch.c.o -c /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c
+        /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c:16:6: error: archfound aarch64
+            #error archfound aarch64
+             ^
+        1 error generated.
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cmake-build-debug/_deps/zlib-src/cmake/detect-arch.cmake:24 (try_run)"
+      - "cmake-build-debug/_deps/zlib-src/CMakeLists.txt:54 (include)"
+    directories:
+      source: "/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp"
+      binary: "/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_OSX_ARCHITECTURES: ""
+      CMAKE_OSX_DEPLOYMENT_TARGET: "14.2"
+      CMAKE_OSX_SYSROOT: "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /Applications/CLion.app/Contents/bin/ninja/mac/aarch64/ninja -v cmTC_3f300
+        [1/2] /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.2 -MD -MT CMakeFiles/cmTC_3f300.dir/detect-arch.c.o -MF CMakeFiles/cmTC_3f300.dir/detect-arch.c.o.d -o CMakeFiles/cmTC_3f300.dir/detect-arch.c.o -c /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c
+        \x1b[31mFAILED: \x1b[0mCMakeFiles/cmTC_3f300.dir/detect-arch.c.o 
+        /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.2 -MD -MT CMakeFiles/cmTC_3f300.dir/detect-arch.c.o -MF CMakeFiles/cmTC_3f300.dir/detect-arch.c.o.d -o CMakeFiles/cmTC_3f300.dir/detect-arch.c.o -c /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c
+        /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c:16:6: error: archfound aarch64
+            #error archfound aarch64
+             ^
+        1 error generated.
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cmake-build-debug/_deps/zlib-src/cmake/detect-arch.cmake:24 (try_run)"
+      - "cmake-build-debug/_deps/zlib-src/CMakeLists.txt:54 (include)"
+    directories:
+      source: "/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp"
+      binary: "/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_OSX_ARCHITECTURES: ""
+      CMAKE_OSX_DEPLOYMENT_TARGET: "14.2"
+      CMAKE_OSX_SYSROOT: "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /Applications/CLion.app/Contents/bin/ninja/mac/aarch64/ninja -v cmTC_c576f
+        [1/2] /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.2 -MD -MT CMakeFiles/cmTC_c576f.dir/detect-arch.c.o -MF CMakeFiles/cmTC_c576f.dir/detect-arch.c.o.d -o CMakeFiles/cmTC_c576f.dir/detect-arch.c.o -c /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c
+        \x1b[31mFAILED: \x1b[0mCMakeFiles/cmTC_c576f.dir/detect-arch.c.o 
+        /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.2 -MD -MT CMakeFiles/cmTC_c576f.dir/detect-arch.c.o -MF CMakeFiles/cmTC_c576f.dir/detect-arch.c.o.d -o CMakeFiles/cmTC_c576f.dir/detect-arch.c.o -c /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c
+        /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c:16:6: error: archfound aarch64
+            #error archfound aarch64
+             ^
+        1 error generated.
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cmake-build-debug/_deps/zlib-src/cmake/detect-arch.cmake:24 (try_run)"
+      - "cmake-build-debug/_deps/zlib-src/CMakeLists.txt:54 (include)"
+    directories:
+      source: "/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp"
+      binary: "/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_OSX_ARCHITECTURES: ""
+      CMAKE_OSX_DEPLOYMENT_TARGET: "14.2"
+      CMAKE_OSX_SYSROOT: "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /Applications/CLion.app/Contents/bin/ninja/mac/aarch64/ninja -v cmTC_37cf0
+        [1/2] /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.2 -fcolor-diagnostics -MD -MT CMakeFiles/cmTC_37cf0.dir/detect-arch.c.o -MF CMakeFiles/cmTC_37cf0.dir/detect-arch.c.o.d -o CMakeFiles/cmTC_37cf0.dir/detect-arch.c.o -c /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c
+        FAILED: CMakeFiles/cmTC_37cf0.dir/detect-arch.c.o 
+        /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.2 -fcolor-diagnostics -MD -MT CMakeFiles/cmTC_37cf0.dir/detect-arch.c.o -MF CMakeFiles/cmTC_37cf0.dir/detect-arch.c.o.d -o CMakeFiles/cmTC_37cf0.dir/detect-arch.c.o -c /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c
+        /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c:16:6: error: archfound aarch64
+            #error archfound aarch64
+             ^
+        1 error generated.
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/CheckTypeSize.cmake:146 (try_compile)"
+      - "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/CheckTypeSize.cmake:271 (__check_type_size_impl)"
+      - "cmake-build-debug/_deps/json-src/cmake/test.cmake:261 (check_type_size)"
+      - "cmake-build-debug/_deps/json-src/tests/CMakeLists.txt:128 (json_test_should_build_32bit_test)"
+    checks:
+      - "Check size of size_t"
+    directories:
+      source: "/Users/matthewjuranek/Project3DSA/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-uu5bJk"
+      binary: "/Users/matthewjuranek/Project3DSA/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-uu5bJk"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/json-src/cmake"
+      CMAKE_OSX_ARCHITECTURES: ""
+      CMAKE_OSX_DEPLOYMENT_TARGET: "14.2"
+      CMAKE_OSX_SYSROOT: "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk"
+    buildResult:
+      variable: "HAVE_sizeof_size_t"
+      cached: true
+      stdout: |
+        Change Dir: '/Users/matthewjuranek/Project3DSA/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-uu5bJk'
+        
+        Run Build Command(s): /Applications/CLion.app/Contents/bin/ninja/mac/aarch64/ninja -v cmTC_0b140
+        [1/2] /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   -std=gnu++14 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.2 -MD -MT CMakeFiles/cmTC_0b140.dir/sizeof_size_t.cpp.o -MF CMakeFiles/cmTC_0b140.dir/sizeof_size_t.cpp.o.d -o CMakeFiles/cmTC_0b140.dir/sizeof_size_t.cpp.o -c /Users/matthewjuranek/Project3DSA/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-uu5bJk/sizeof_size_t.cpp
+        [2/2] : && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.2 -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/cmTC_0b140.dir/sizeof_size_t.cpp.o -o cmTC_0b140   && :
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cmake-build-debug/_deps/zlib-src/cmake/detect-arch.cmake:24 (try_run)"
+      - "cmake-build-debug/_deps/zlib-src/CMakeLists.txt:54 (include)"
+    directories:
+      source: "/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp"
+      binary: "/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_OSX_ARCHITECTURES: ""
+      CMAKE_OSX_DEPLOYMENT_TARGET: "14.2"
+      CMAKE_OSX_SYSROOT: "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /Applications/CLion.app/Contents/bin/ninja/mac/aarch64/ninja -v cmTC_267be
+        [1/2] /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.2 -fcolor-diagnostics -MD -MT CMakeFiles/cmTC_267be.dir/detect-arch.c.o -MF CMakeFiles/cmTC_267be.dir/detect-arch.c.o.d -o CMakeFiles/cmTC_267be.dir/detect-arch.c.o -c /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c
+        FAILED: CMakeFiles/cmTC_267be.dir/detect-arch.c.o 
+        /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.2 -fcolor-diagnostics -MD -MT CMakeFiles/cmTC_267be.dir/detect-arch.c.o -MF CMakeFiles/cmTC_267be.dir/detect-arch.c.o.d -o CMakeFiles/cmTC_267be.dir/detect-arch.c.o -c /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c
+        /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c:16:6: error: archfound aarch64
+            #error archfound aarch64
+             ^
+        1 error generated.
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cmake-build-debug/_deps/zlib-src/cmake/detect-arch.cmake:24 (try_run)"
+      - "cmake-build-debug/_deps/zlib-src/CMakeLists.txt:54 (include)"
+    directories:
+      source: "/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp"
+      binary: "/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_OSX_ARCHITECTURES: ""
+      CMAKE_OSX_DEPLOYMENT_TARGET: "14.2"
+      CMAKE_OSX_SYSROOT: "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /Applications/CLion.app/Contents/bin/ninja/mac/aarch64/ninja -v cmTC_6b4a2
+        [1/2] /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.2 -fcolor-diagnostics -MD -MT CMakeFiles/cmTC_6b4a2.dir/detect-arch.c.o -MF CMakeFiles/cmTC_6b4a2.dir/detect-arch.c.o.d -o CMakeFiles/cmTC_6b4a2.dir/detect-arch.c.o -c /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c
+        FAILED: CMakeFiles/cmTC_6b4a2.dir/detect-arch.c.o 
+        /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.2 -fcolor-diagnostics -MD -MT CMakeFiles/cmTC_6b4a2.dir/detect-arch.c.o -MF CMakeFiles/cmTC_6b4a2.dir/detect-arch.c.o.d -o CMakeFiles/cmTC_6b4a2.dir/detect-arch.c.o -c /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c
+        /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c:16:6: error: archfound aarch64
+            #error archfound aarch64
+             ^
+        1 error generated.
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cmake-build-debug/_deps/zlib-src/cmake/detect-arch.cmake:24 (try_run)"
+      - "cmake-build-debug/_deps/zlib-src/CMakeLists.txt:54 (include)"
+    directories:
+      source: "/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp"
+      binary: "/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_OSX_ARCHITECTURES: ""
+      CMAKE_OSX_DEPLOYMENT_TARGET: "14.2"
+      CMAKE_OSX_SYSROOT: "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /Applications/CLion.app/Contents/bin/ninja/mac/aarch64/ninja -v cmTC_a8f22
+        [1/2] /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.2 -MD -MT CMakeFiles/cmTC_a8f22.dir/detect-arch.c.o -MF CMakeFiles/cmTC_a8f22.dir/detect-arch.c.o.d -o CMakeFiles/cmTC_a8f22.dir/detect-arch.c.o -c /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c
+        \x1b[31mFAILED: \x1b[0mCMakeFiles/cmTC_a8f22.dir/detect-arch.c.o 
+        /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.2 -MD -MT CMakeFiles/cmTC_a8f22.dir/detect-arch.c.o -MF CMakeFiles/cmTC_a8f22.dir/detect-arch.c.o.d -o CMakeFiles/cmTC_a8f22.dir/detect-arch.c.o -c /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c
+        /Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/zlib-src/cmake/detect-arch.c:16:6: error: archfound aarch64
+            #error archfound aarch64
+             ^
+        1 error generated.
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+...

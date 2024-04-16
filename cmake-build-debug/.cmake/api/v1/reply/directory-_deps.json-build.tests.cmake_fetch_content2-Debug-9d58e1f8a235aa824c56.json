@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "_deps/json-build/tests/cmake_fetch_content2",
+		"source" : "cmake-build-debug/_deps/json-src/tests/cmake_fetch_content2"
+	}
+}
