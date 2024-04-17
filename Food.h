@@ -9,14 +9,13 @@ using namespace std;
 
 class Food {
 public:
-    string id; // _id
-    string name; //product_name
-    double carbohydrates; // nutriments > carbohydrates
-    double proteins; // nutriments > proteins;
-    double fat; // nutriments > fat
-    double sugars; //nutriments > sugars
-    double sodium; // nutriments > sodium
-    //TODO: Add other attributes as needed
+    string id;
+    string name;
+    double carbohydrates;
+    double proteins;
+    double fat;
+    double sugars;
+    double sodium;
 
     Food();
     Food(string id, string name, double carbohydrates, double proteins, double fat, double sugars, double sodium);
