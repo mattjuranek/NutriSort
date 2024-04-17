@@ -1,15 +1,89 @@
 #include "Food.h"
 #include "unordered_map.h"
 #include <map>
-#include <cmath>
+#include <algorithm>
 using namespace cpr;
 using json = nlohmann::json;
 
 
+bool compareHigh(const pair<string, Food>& a, const pair<string, Food>& b, const string& nutrient) {
+    if (nutrient == "proteins") {
+        return a.second.proteins > b.second.proteins;
+    }
+    else if (nutrient == "fats") {
+        return a.second.fat > b.second.fat;
+    }
+    else if (nutrient == "carbohydrates") {
+        return a.second.carbohydrates > b.second.carbohydrates;
+    }
+    else if (nutrient == "sugars") {
+        return a.second.sugars > b.second.sugars;
+    }
+    else if (nutrient == "sodium") {
+        return a.second.sodium > b.second.sodium;
+    }
+    return false;
+}
+
+bool compareLow(const pair<string, Food>& a, const pair<string, Food>& b, const string& nutrient) {
+    if (nutrient == "proteins") {
+        return a.second.proteins < b.second.proteins;
+    }
+    else if (nutrient == "fats") {
+        return a.second.fat < b.second.fat;
+    }
+    else if (nutrient == "carbohydrates") {
+        return a.second.carbohydrates < b.second.carbohydrates;
+    }
+    else if (nutrient == "sugars") {
+        return a.second.sugars < b.second.sugars;
+    }
+    else if (nutrient == "sodium") {
+        return a.second.sodium < b.second.sodium;
+    }
+    return false;
+}
+
+vector<string> sortHigh(const map<string, Food>& foodMap, const string& nutrient) {
+    // Convert map to vector of pairs for sorting
+    vector<pair<string, Food>> foodItems(foodMap.begin(), foodMap.end());
+
+    // Sort using compareHigh function
+    sort(foodItems.begin(), foodItems.end(), [&nutrient](const pair<string, Food>& a, const pair<string, Food>& b) {
+        return compareHigh(a, b, nutrient);
+    });
+
+    // Add sorted IDs to vector
+    vector<string> sortedIDs;
+    for (const auto& item : foodItems) {
+        sortedIDs.push_back(item.first);
+    }
+
+    return sortedIDs;
+}
+
+vector<string> sortLow(const map<string, Food>& foodMap, const string& nutrient) {
+    // Convert map to vector of pairs for sorting
+    vector<pair<string, Food>> foodItems(foodMap.begin(), foodMap.end());
+
+    // Sort using compareLow function
+    sort(foodItems.begin(), foodItems.end(), [&nutrient](const pair<string, Food>& a, const pair<string, Food>& b) {
+        return compareLow(a, b, nutrient);
+    });
+
+    // Add sorted IDs to vector
+    vector<string> sortedIDs;
+    for (const auto& item : foodItems) {
+        sortedIDs.push_back(item.first);
+    }
+
+    return sortedIDs;
+}
+
 void loadResultsWindow(tuple<string, string, string> results) {
-    std::string productName = std::get<0>(results);
-    std::string nutrient = std::get<1>(results);
-    std::string sortMethod = std::get<2>(results);
+    string productName = std::get<0>(results);
+    string nutrient = std::get<1>(results);
+    string sortMethod = std::get<2>(results);
     map<string, Food> foodMap;
     int maxPages = 1;
 
@@ -47,6 +121,16 @@ void loadResultsWindow(tuple<string, string, string> results) {
         }
     }
 
+    // Sort foods by desired nutrient
+    vector<string> sortedFoodIDs;
+
+    if (sortMethod == "high") {
+        sortedFoodIDs = sortHigh(foodMap, nutrient);
+    }
+    else if (sortMethod == "low") {
+        sortedFoodIDs = sortLow(foodMap, nutrient);
+    }
+
     // Stop the timer
     auto stop = chrono::high_resolution_clock::now();
 
@@ -56,16 +140,6 @@ void loadResultsWindow(tuple<string, string, string> results) {
     // Output duration
     cout << "Time to process: " << duration.count() << " seconds" << endl << endl;
 
-    // Output food information for each product
-    for (auto food : foodMap) {
-        cout << "ID: " << food.first << endl;
-        cout << "Name: " << food.second.name << endl;
-        cout << "Carbohydrates: " << food.second.carbohydrates << endl;
-        cout << "Proteins: " << food.second.proteins << endl;
-        cout << "Fat: " << food.second.fat << endl;
-        cout << "Sugars: " << food.second.sugars << endl;
-        cout << "Sodium: " << food.second.sodium << endl << endl;
-    }
 
     while (window.isOpen()) {
         sf::Event event;
@@ -78,13 +152,15 @@ void loadResultsWindow(tuple<string, string, string> results) {
         window.clear(sf::Color(240, 240, 240));
 
         int i = 0;
-        for (auto  food : foodMap) {
-            string nameString = to_string(i + 1) + ". " + food.second.name;
-            string proteinString = "Protein: " + to_string(int(food.second.proteins));
-            string carbsString = "Carbohydrates: " + to_string(int(food.second.carbohydrates));
-            string fatsString = "Fats: " + to_string(int(food.second.fat));
-            string sugarsString = "Sugars: " + to_string(int(food.second.sugars));
-            string sodiumString = "Sodium: " + to_string(int(food.second.sodium));
+        for (auto  id : sortedFoodIDs) {
+            const Food& food = foodMap[id];
+
+            string nameString = to_string(i + 1) + ". " + food.name;
+            string proteinString = "Protein: " + to_string(int(food.proteins));
+            string carbsString = "Carbohydrates: " + to_string(int(food.carbohydrates));
+            string fatsString = "Fats: " + to_string(int(food.fat));
+            string sugarsString = "Sugars: " + to_string(int(food.sugars));
+            string sodiumString = "Sodium: " + to_string(int(food.sodium));
 
             // Text object for food name
             sf::Text name;
@@ -93,7 +169,7 @@ void loadResultsWindow(tuple<string, string, string> results) {
             name.setCharacterSize(20);
             name.setFillColor(sf::Color::Black);
             name.setStyle(sf::Text::Bold);
-            name.setPosition(20, 100 * i);
+            name.setPosition(20, 100 * i + 20);
             window.draw(name);
 
             // Text object for protein
@@ -102,7 +178,7 @@ void loadResultsWindow(tuple<string, string, string> results) {
             protein.setString(proteinString);
             protein.setCharacterSize(20);
             protein.setFillColor(sf::Color::Black);
-            protein.setPosition(50, 100 * i + 30);
+            protein.setPosition(50, 100 * i + 50);
             window.draw(protein);
 
             // Text object for carbs
@@ -111,7 +187,7 @@ void loadResultsWindow(tuple<string, string, string> results) {
             carbs.setString(carbsString);
             carbs.setCharacterSize(20);
             carbs.setFillColor(sf::Color::Black);
-            carbs.setPosition(200, 100 * i + 30);
+            carbs.setPosition(200, 100 * i + 50);
             window.draw(carbs);
 
             // Text object for fats
@@ -120,7 +196,7 @@ void loadResultsWindow(tuple<string, string, string> results) {
             fats.setString(fatsString);
             fats.setCharacterSize(20);
             fats.setFillColor(sf::Color::Black);
-            fats.setPosition(420, 100 * i + 30);
+            fats.setPosition(420, 100 * i + 50);
             window.draw(fats);
 
             // Text object for sugars
@@ -129,7 +205,7 @@ void loadResultsWindow(tuple<string, string, string> results) {
             sugars.setString(sugarsString);
             sugars.setCharacterSize(20);
             sugars.setFillColor(sf::Color::Black);
-            sugars.setPosition(550, 100 * i + 30);
+            sugars.setPosition(550, 100 * i + 50);
             window.draw(sugars);
 
             // Text object for sodium
@@ -138,7 +214,7 @@ void loadResultsWindow(tuple<string, string, string> results) {
             sodium.setString(sodiumString);
             sodium.setCharacterSize(20);
             sodium.setFillColor(sf::Color::Black);
-            sodium.setPosition(700, 100 * i + 30);
+            sodium.setPosition(700, 100 * i + 50);
             window.draw(sodium);
 
             // Text object for line
@@ -147,7 +223,7 @@ void loadResultsWindow(tuple<string, string, string> results) {
             line.setString("____________________________________________________________________________________________________");
             line.setCharacterSize(20);
             line.setFillColor(sf::Color::Black);
-            line.setPosition(0, 100 * i + 50);
+            line.setPosition(0, 100 * i + 80);
             window.draw(line);
 
             i++;
@@ -392,17 +468,17 @@ tuple<string, string, string> loadSearchWindow() {
 
                     // Protein button
                     if (proteinLabel.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
-                        if (!nutrientIsSelected || nutrient != "protein") {
+                        if (!nutrientIsSelected || nutrient != "proteins") {
                             proteinLabel.setStyle(sf::Text::Bold);
                             carbLabel.setStyle(sf::Text::Regular);
                             fatLabel.setStyle(sf::Text::Regular);
                             sugarLabel.setStyle(sf::Text::Regular);
                             sodiumLabel.setStyle(sf::Text::Regular);
 
-                            nutrient = "protein";
+                            nutrient = "proteins";
                             nutrientIsSelected = true;
                         }
-                        else if (nutrient == "protein") {
+                        else if (nutrient == "proteins") {
                             proteinLabel.setStyle(sf::Text::Regular);
                             nutrient = "";
                             nutrientIsSelected = false;
@@ -411,17 +487,17 @@ tuple<string, string, string> loadSearchWindow() {
 
                     // Carbohydrate button
                     else if (carbLabel.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
-                        if (!nutrientIsSelected || nutrient != "carbohydrate") {
+                        if (!nutrientIsSelected || nutrient != "carbohydrates") {
                             proteinLabel.setStyle(sf::Text::Regular);
                             carbLabel.setStyle(sf::Text::Bold);
                             fatLabel.setStyle(sf::Text::Regular);
                             sugarLabel.setStyle(sf::Text::Regular);
                             sodiumLabel.setStyle(sf::Text::Regular);
 
-                            nutrient = "carbohydrate";
+                            nutrient = "carbohydrates";
                             nutrientIsSelected = true;
                         }
-                        else if (nutrient == "carbohydrate") {
+                        else if (nutrient == "carbohydrates") {
                             carbLabel.setStyle(sf::Text::Regular);
                             nutrient = "";
                             nutrientIsSelected = false;
@@ -430,17 +506,17 @@ tuple<string, string, string> loadSearchWindow() {
 
                     // Fat button
                     if (fatLabel.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
-                        if (!nutrientIsSelected || nutrient != "fat") {
+                        if (!nutrientIsSelected || nutrient != "fats") {
                             proteinLabel.setStyle(sf::Text::Regular);
                             carbLabel.setStyle(sf::Text::Regular);
                             fatLabel.setStyle(sf::Text::Bold);
                             sugarLabel.setStyle(sf::Text::Regular);
                             sodiumLabel.setStyle(sf::Text::Regular);
 
-                            nutrient = "fat";
+                            nutrient = "fats";
                             nutrientIsSelected = true;
                         }
-                        else if (nutrient == "fat") {
+                        else if (nutrient == "fats") {
                             fatLabel.setStyle(sf::Text::Regular);
                             nutrient = "";
                             nutrientIsSelected = false;
@@ -449,17 +525,17 @@ tuple<string, string, string> loadSearchWindow() {
 
                     // Sugar button
                     if (sugarLabel.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
-                        if (!nutrientIsSelected || nutrient != "sugar") {
+                        if (!nutrientIsSelected || nutrient != "sugars") {
                             proteinLabel.setStyle(sf::Text::Regular);
                             carbLabel.setStyle(sf::Text::Regular);
                             fatLabel.setStyle(sf::Text::Regular);
                             sugarLabel.setStyle(sf::Text::Bold);
                             sodiumLabel.setStyle(sf::Text::Regular);
 
-                            nutrient = "sugar";
+                            nutrient = "sugars";
                             nutrientIsSelected = true;
                         }
-                        else if (nutrient == "sugar") {
+                        else if (nutrient == "sugars") {
                             sugarLabel.setStyle(sf::Text::Regular);
                             nutrient = "";
                             nutrientIsSelected = false;
