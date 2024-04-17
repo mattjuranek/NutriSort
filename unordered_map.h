@@ -4,6 +4,7 @@
 #include <utility>
 #include <functional>
 #include <map>
+#include "Food.h"
 
 using namespace std;
 
@@ -11,7 +12,7 @@ template<typename K, typename V>
 class unordered_map
 {
 private:
-    vector<list<pair<K, vector<V>>>> hashTable;
+    vector<list<pair<K, V>>> hashTable;
     int size;
     int capacity;
 
@@ -23,27 +24,26 @@ public:
         return std::hash<K>{}(key) % capacity;
     }
 
-    void insert(K key, vector<V> values)
+    void insert(K key, V value)
     {
         for (auto& x : hashTable[hash(key)])
         {
             if (x.first == key)
             {
-                x.second = values;
+                x.second = value;
                 return;
             }
         }
-        hashTable[hash(key)].push_back(make_pair(key, values));
+        hashTable[hash(key)].push_back(make_pair(key, value));
         size++;
     }
 
-    bool search(K key, vector<V>& values)
+    bool search(K key, V& value)
     {
-        for (auto& x : hashTable[hash(key)])
-        {
+        for (auto& x : hashTable[hash(key)]) {
             if (x.first == key)
             {
-                values = x.second;
+                value = x.second;
                 return true;
             }
         }
@@ -52,10 +52,9 @@ public:
 
     bool remove(K key)
     {
-        for (auto it = hashTable[hash(key)].begin(); it != hashTable[hash(key)].end(); it++)
+        for (auto it = hashTable[hash(key)].begin(); it != hashTable[hash(key)].end(); ++it)
         {
-            if (it->first == key)
-            {
+            if (it->first == key) {
                 hashTable[hash(key)].erase(it);
                 size--;
                 return true;
@@ -75,47 +74,25 @@ public:
     }
 };
 
-/*
-int main() {
-    unordered_map<string, string> unordered_map;
+int main()
+{
+    unordered_map<string, Food> foodMap;
 
-    vector<string> Jif_values = { "low", "low", "low" };
-    vector<string> Skippy_values = { "medium", "low", "low" };
-    vector<string> PeterPan_values = { "high", "low", "low" };
-    vector<string> Reeses_values = { "high", "low", "medium" };
-    vector<string> GreatValue_values = { "low", "high", "low" };
+    foodMap.insert("Apple", Food("1", "Apple", 25.0, 0.3, 0.2, 19.0, 1.0));
+    foodMap.insert("Banana", Food("2", "Banana", 23.0, 1.1, 0.3, 12.0, 1.0));
 
-    unordered_map.insert("Jif", Jif_values);
-    unordered_map.insert("Skippy", Skippy_values);
-    unordered_map.insert("Peter Pan", PeterPan_values);
-    unordered_map.insert("Reeses", Reeses_values);
-    unordered_map.insert("Great Value", GreatValue_values);
-
-    vector<string> value;
-    if (unordered_map.search("Jif", value)) {
-        cout << "Found Jif, values are: ";
-        for (const auto& val : value) {
-            cout << val << " ";
-        }
-        cout << endl;
+    Food searchResult;
+    if (foodMap.search("Apple", searchResult))
+    {
+        cout << "Found Apple, Nutritional Information:" << endl;
+        cout << "Carbohydrates: " << searchResult.carbohydrates << "g" << endl;
+        cout << "Proteins: " << searchResult.proteins << "g" << endl;
+        cout << "Fat: " << searchResult.fat << "g" << endl;
+        cout << "Sugars: " << searchResult.sugars << "g" << endl;
+        cout << "Sodium: " << searchResult.sodium << "mg" << endl;
     }
-    else {
-        cout << "Jif not found" << endl;
-    }
-
-    unordered_map.remove("Jif");
-
-    if (unordered_map.search("Jif", value)) {
-        cout << "Found Jif, values are: ";
-        for (const auto& val : value) {
-            cout << val << " ";
-        }
-        cout << endl;
-    }
-    else {
-        cout << "Jif not found" << endl;
-    }
-
+    else
+        cout << "Apple not found" << endl;
+    
     return 0;
 }
-*/
