@@ -61,15 +61,13 @@ void loadResultsWindow(tuple<string, string, string> results) {
 
     sf::RenderWindow window(sf::VideoMode(800, 600), "NutriSort");
 
-    // Load font file
-    sf::Font font;
-    if (!font.loadFromFile("../font.ttf"))
-    {
+    // Load font files
+    sf::Font textFont;
+    if (!textFont.loadFromFile("../textFont.ttf")) {
         return;
     }
 
-    while (window.isOpen())
-    {
+    while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event))
         {
@@ -111,23 +109,28 @@ tuple<string, string, string> loadSearchWindow() {
     background.setScale(scaleX, scaleY);
 
     // Load font file
-    sf::Font font;
-    if (!font.loadFromFile("../font.ttf")) {
+    sf::Font textFont;
+    if (!textFont.loadFromFile("../textFont.ttf")) {
+        return make_tuple(userInput, nutrient, userInput);
+    }
+
+    sf::Font titleFont;
+    if (!titleFont.loadFromFile("../titleFont.ttf")) {
         return make_tuple(userInput, nutrient, userInput);
     }
 
     // Text object for title
     sf::Text title;
-    title.setFont(font);
+    title.setFont(titleFont);
     title.setString("NutriSort");
-    title.setCharacterSize(48);
+    title.setCharacterSize(56);
     title.setFillColor(sf::Color::Black);
     title.setStyle(sf::Text::Bold);
     title.setPosition(800 / 2 - title.getLocalBounds().width / 2, 50);
 
     // Text object for user input
     sf::Text userInputText;
-    userInputText.setFont(font);
+    userInputText.setFont(textFont);
     userInputText.setCharacterSize(30);
     userInputText.setStyle(sf::Text::Bold);
     userInputText.setFillColor(sf::Color::Black);
@@ -135,7 +138,7 @@ tuple<string, string, string> loadSearchWindow() {
 
     // Text object for search label
     sf::Text searchLabel;
-    searchLabel.setFont(font);
+    searchLabel.setFont(textFont);
     searchLabel.setString("Search Food:");
     searchLabel.setCharacterSize(32);
     searchLabel.setFillColor(sf::Color::Black);
@@ -143,7 +146,7 @@ tuple<string, string, string> loadSearchWindow() {
 
     // Text object for "High"
     sf::Text highLabel;
-    highLabel.setFont(font);
+    highLabel.setFont(textFont);
     highLabel.setString("High");
     highLabel.setCharacterSize(24);
     highLabel.setFillColor(sf::Color::Black);
@@ -151,7 +154,7 @@ tuple<string, string, string> loadSearchWindow() {
 
     // Text object for "Low"
     sf::Text lowLabel;
-    lowLabel.setFont(font);
+    lowLabel.setFont(textFont);
     lowLabel.setString("Low");
     lowLabel.setCharacterSize(24);
     lowLabel.setFillColor(sf::Color::Black);
@@ -180,7 +183,7 @@ tuple<string, string, string> loadSearchWindow() {
 
     // Text object for nutrient select
     sf::Text restrictionLabel;
-    restrictionLabel.setFont(font);
+    restrictionLabel.setFont(textFont);
     restrictionLabel.setString("Select Nutrient:");
     restrictionLabel.setCharacterSize(32);
     restrictionLabel.setFillColor(sf::Color::Black);
@@ -188,7 +191,7 @@ tuple<string, string, string> loadSearchWindow() {
 
     // Text object for protein
     sf::Text proteinLabel;
-    proteinLabel.setFont(font);
+    proteinLabel.setFont(textFont);
     proteinLabel.setString("Protein");
     proteinLabel.setCharacterSize(20);
     proteinLabel.setFillColor(sf::Color::Black);
@@ -196,7 +199,7 @@ tuple<string, string, string> loadSearchWindow() {
 
     // Text object for carbs
     sf::Text carbLabel;
-    carbLabel.setFont(font);
+    carbLabel.setFont(textFont);
     carbLabel.setString("Carbohydrates");
     carbLabel.setCharacterSize(20);
     carbLabel.setFillColor(sf::Color::Black);
@@ -204,7 +207,7 @@ tuple<string, string, string> loadSearchWindow() {
 
     // Text object for fat
     sf::Text fatLabel;
-    fatLabel.setFont(font);
+    fatLabel.setFont(textFont);
     fatLabel.setString("Fat");
     fatLabel.setCharacterSize(20);
     fatLabel.setFillColor(sf::Color::Black);
@@ -212,7 +215,7 @@ tuple<string, string, string> loadSearchWindow() {
 
     // Text object for sugar
     sf::Text sugarLabel;
-    sugarLabel.setFont(font);
+    sugarLabel.setFont(textFont);
     sugarLabel.setString("Sugar");
     sugarLabel.setCharacterSize(20);
     sugarLabel.setFillColor(sf::Color::Black);
@@ -220,7 +223,7 @@ tuple<string, string, string> loadSearchWindow() {
 
     // Text object for sodium
     sf::Text sodiumLabel;
-    sodiumLabel.setFont(font);
+    sodiumLabel.setFont(textFont);
     sodiumLabel.setString("Sodium");
     sodiumLabel.setCharacterSize(20);
     sodiumLabel.setFillColor(sf::Color::Black);
