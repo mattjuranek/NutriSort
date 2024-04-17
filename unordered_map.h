@@ -25,7 +25,7 @@ public:
 
     void insert(K key, vector<V> values)
     {
-        for (auto x : hashTable[hash(key)])
+        for (auto& x : hashTable[hash(key)])
         {
             if (x.first == key)
             {
@@ -39,7 +39,7 @@ public:
 
     bool search(K key, vector<V>& values)
     {
-        for (auto x : hashTable[hash(key)])
+        for (auto& x : hashTable[hash(key)])
         {
             if (x.first == key)
             {
