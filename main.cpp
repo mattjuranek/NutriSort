@@ -12,6 +12,14 @@ void loadResultsWindow(tuple<string, string, string> results) {
     map<string, Food> foodMap;
     int maxPages = 1;
 
+    sf::RenderWindow window(sf::VideoMode(800, 600), "NutriSort");
+
+    // Load font files
+    sf::Font textFont;
+    if (!textFont.loadFromFile("../textFont.ttf")) {
+        return;
+    }
+
     auto start = chrono::high_resolution_clock::now();
 
     // Iterate through response pages (1 to maxPages)
@@ -47,7 +55,6 @@ void loadResultsWindow(tuple<string, string, string> results) {
     // Output duration
     cout << "Time to process: " << duration.count() << " seconds" << endl << endl;
 
-
     // Output food information for each product
     for (auto food : foodMap) {
         cout << "ID: " << food.first << endl;
@@ -59,14 +66,6 @@ void loadResultsWindow(tuple<string, string, string> results) {
         cout << "Sodium: " << food.second.sodium << endl << endl;
     }
 
-    sf::RenderWindow window(sf::VideoMode(800, 600), "NutriSort");
-
-    // Load font files
-    sf::Font textFont;
-    if (!textFont.loadFromFile("../textFont.ttf")) {
-        return;
-    }
-
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event))
@@ -76,6 +75,22 @@ void loadResultsWindow(tuple<string, string, string> results) {
         }
 
         window.clear(sf::Color(240, 240, 240));
+
+        int i = 0;
+        for (auto  food : foodMap) {
+            string nameString = "Name: " + food.second.name;
+
+            // Text object for food name
+            sf::Text name;
+            name.setFont(textFont);
+            name.setString(nameString);
+            name.setCharacterSize(20);
+            name.setFillColor(sf::Color::Black);
+            name.setPosition(20, 50 * i);
+            window.draw(name);
+
+            i++;
+        }
 
         // Update window
         window.display();
@@ -435,6 +450,8 @@ tuple<string, string, string> loadSearchWindow() {
         // Update window
         window.display();
     }
+
+    return make_tuple(userInput, nutrient, userInput);
 }
 
 
