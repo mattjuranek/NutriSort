@@ -123,7 +123,7 @@ tuple<string, string, string> loadSearchWindow() {
     sf::Text title;
     title.setFont(titleFont);
     title.setString("NutriSort");
-    title.setCharacterSize(56);
+    title.setCharacterSize(66);
     title.setFillColor(sf::Color::Black);
     title.setStyle(sf::Text::Bold);
     title.setPosition(800 / 2 - title.getLocalBounds().width / 2, 50);
