@@ -3,7 +3,7 @@
 #include <list>
 #include <utility>
 #include <functional>
-#include "Food.h"
+//#include "Food.h"
 
 using namespace std;
 
@@ -73,25 +73,25 @@ public:
     }
 };
 
-int main()
-{
-    unordered_map<string, Food> foodMap;
-
-    foodMap.insert("Apple", Food("1", "Apple", 25.0, 0.3, 0.2, 19.0, 1.0));
-    foodMap.insert("Banana", Food("2", "Banana", 23.0, 1.1, 0.3, 12.0, 1.0));
-
-    Food searchResult;
-    if (foodMap.search("Apple", searchResult))
-    {
-        cout << "Found Apple, Nutritional Information:" << endl;
-        cout << "Carbohydrates: " << searchResult.carbohydrates << "g" << endl;
-        cout << "Proteins: " << searchResult.proteins << "g" << endl;
-        cout << "Fat: " << searchResult.fat << "g" << endl;
-        cout << "Sugars: " << searchResult.sugars << "g" << endl;
-        cout << "Sodium: " << searchResult.sodium << "mg" << endl;
-    }
-    else
-        cout << "Apple not found" << endl;
-    
-    return 0;
-}
+//int main()
+//{
+//    unordered_map<string, Food> foodMap;
+//
+//    foodMap.insert("Apple", Food("1", "Apple", 25.0, 0.3, 0.2, 19.0, 1.0));
+//    foodMap.insert("Banana", Food("2", "Banana", 23.0, 1.1, 0.3, 12.0, 1.0));
+//
+//    Food searchResult;
+//    if (foodMap.search("Apple", searchResult))
+//    {
+//        cout << "Found Apple, Nutritional Information:" << endl;
+//        cout << "Carbohydrates: " << searchResult.carbohydrates << "g" << endl;
+//        cout << "Proteins: " << searchResult.proteins << "g" << endl;
+//        cout << "Fat: " << searchResult.fat << "g" << endl;
+//        cout << "Sugars: " << searchResult.sugars << "g" << endl;
+//        cout << "Sodium: " << searchResult.sodium << "mg" << endl;
+//    }
+//    else
+//        cout << "Apple not found" << endl;
+//
+//    return 0;
+//}

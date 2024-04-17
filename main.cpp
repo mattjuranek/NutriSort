@@ -1,6 +1,7 @@
 #include "Food.h"
 #include "unordered_map.h"
 #include <map>
+#include <cmath>
 using namespace cpr;
 using json = nlohmann::json;
 
@@ -78,7 +79,12 @@ void loadResultsWindow(tuple<string, string, string> results) {
 
         int i = 0;
         for (auto  food : foodMap) {
-            string nameString = "Name: " + food.second.name;
+            string nameString = to_string(i + 1) + ". " + food.second.name;
+            string proteinString = "Protein: " + to_string(int(food.second.proteins));
+            string carbsString = "Carbohydrates: " + to_string(int(food.second.carbohydrates));
+            string fatsString = "Fats: " + to_string(int(food.second.fat));
+            string sugarsString = "Sugars: " + to_string(int(food.second.sugars));
+            string sodiumString = "Sodium: " + to_string(int(food.second.sodium));
 
             // Text object for food name
             sf::Text name;
@@ -86,8 +92,63 @@ void loadResultsWindow(tuple<string, string, string> results) {
             name.setString(nameString);
             name.setCharacterSize(20);
             name.setFillColor(sf::Color::Black);
-            name.setPosition(20, 50 * i);
+            name.setStyle(sf::Text::Bold);
+            name.setPosition(20, 100 * i);
             window.draw(name);
+
+            // Text object for protein
+            sf::Text protein;
+            protein.setFont(textFont);
+            protein.setString(proteinString);
+            protein.setCharacterSize(20);
+            protein.setFillColor(sf::Color::Black);
+            protein.setPosition(50, 100 * i + 30);
+            window.draw(protein);
+
+            // Text object for carbs
+            sf::Text carbs;
+            carbs.setFont(textFont);
+            carbs.setString(carbsString);
+            carbs.setCharacterSize(20);
+            carbs.setFillColor(sf::Color::Black);
+            carbs.setPosition(200, 100 * i + 30);
+            window.draw(carbs);
+
+            // Text object for fats
+            sf::Text fats;
+            fats.setFont(textFont);
+            fats.setString(fatsString);
+            fats.setCharacterSize(20);
+            fats.setFillColor(sf::Color::Black);
+            fats.setPosition(420, 100 * i + 30);
+            window.draw(fats);
+
+            // Text object for sugars
+            sf::Text sugars;
+            sugars.setFont(textFont);
+            sugars.setString(sugarsString);
+            sugars.setCharacterSize(20);
+            sugars.setFillColor(sf::Color::Black);
+            sugars.setPosition(550, 100 * i + 30);
+            window.draw(sugars);
+
+            // Text object for sodium
+            sf::Text sodium;
+            sodium.setFont(textFont);
+            sodium.setString(sodiumString);
+            sodium.setCharacterSize(20);
+            sodium.setFillColor(sf::Color::Black);
+            sodium.setPosition(700, 100 * i + 30);
+            window.draw(sodium);
+
+            // Text object for line
+            sf::Text line;
+            line.setFont(textFont);
+            line.setString("____________________________________________________________________________________________________");
+            line.setCharacterSize(20);
+            line.setFillColor(sf::Color::Black);
+            line.setPosition(0, 100 * i + 50);
+            window.draw(line);
 
             i++;
         }
