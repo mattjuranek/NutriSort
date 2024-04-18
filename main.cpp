@@ -56,7 +56,9 @@ vector<string> sortHigh(const map<string, Food>& foodMap, const string& nutrient
     // Add sorted IDs to vector
     vector<string> sortedIDs;
     for (const auto& item : foodItems) {
-        sortedIDs.push_back(item.first);
+        if (item.second.name != "") {
+            sortedIDs.push_back(item.first);
+        }
     }
 
     return sortedIDs;
@@ -74,7 +76,11 @@ vector<string> sortHighUnordered(::unordered_map<string, Food>& foodMap, const s
     // Add sorted IDs to vector
     vector<string> sortedIDs;
     for (const auto& item : foodItems) {
-        sortedIDs.push_back(item.first);
+
+        // Skip items with blank name
+        if (item.second.name != "") {
+            sortedIDs.push_back(item.first);
+        }
     }
 
     return sortedIDs;
@@ -92,7 +98,11 @@ vector<string> sortLow(const map<string, Food>& foodMap, const string& nutrient)
     // Add sorted IDs to vector
     vector<string> sortedIDs;
     for (const auto& item : foodItems) {
-        sortedIDs.push_back(item.first);
+
+        // Skip items with blank name
+        if (item.second.name != "") {
+            sortedIDs.push_back(item.first);
+        }
     }
 
     return sortedIDs;
@@ -110,7 +120,11 @@ vector<string> sortLowUnordered(::unordered_map<string, Food>& foodMap, const st
     // Add sorted IDs to vector
     vector<string> sortedIDs;
     for (const auto& item : foodItems) {
-        sortedIDs.push_back(item.first);
+
+        // Skip items with blank name
+        if (item.second.name != "") {
+            sortedIDs.push_back(item.first);
+        }
     }
 
     return sortedIDs;
@@ -121,7 +135,6 @@ void loadResultsWindow(tuple<string, string, string> results) {
     string nutrient = std::get<1>(results);
     string sortMethod = std::get<2>(results);
     map<string, Food> orderedFoodMap;
-    int maxPages = 1;
 
     sf::RenderWindow window(sf::VideoMode(800, 600), "NutriSort");
 
@@ -133,7 +146,7 @@ void loadResultsWindow(tuple<string, string, string> results) {
 
     auto start = chrono::high_resolution_clock::now();
 
-    auto response = Get(Url{"https://us.openfoodfacts.org/cgi/search.pl"}, Parameters{{"search_terms", productName}, {"action", "process"},{"json", "true"}, {"page_count", "50"}, {"page_size" , "50"}});
+    auto response = Get(Url{"https://us.openfoodfacts.org/cgi/search.pl"}, Parameters{{"search_terms", productName}, {"action", "process"},{"json", "true"}, {"page_count", "100"}, {"page_size" , "100"}});
 
     json j = json::parse(response.text);
 
@@ -272,7 +285,6 @@ void loadResultsWindowUnordered(tuple<string, string, string> results) {
     string nutrient = std::get<1>(results);
     string sortMethod = std::get<2>(results);
     ::unordered_map<string, Food> unorderedFoodMap;
-    int maxPages = 1;
 
     sf::RenderWindow window(sf::VideoMode(800, 600), "NutriSort");
 
@@ -284,7 +296,7 @@ void loadResultsWindowUnordered(tuple<string, string, string> results) {
 
     auto start = chrono::high_resolution_clock::now();
 
-    auto response = Get(Url{"https://us.openfoodfacts.org/cgi/search.pl"}, Parameters{{"search_terms", productName}, {"action", "process"},{"json", "true"}, {"page_count", "50"}, {"page_size" , "50"}});
+    auto response = Get(Url{"https://us.openfoodfacts.org/cgi/search.pl"}, Parameters{{"search_terms", productName}, {"action", "process"},{"json", "true"}, {"page_count", "100"}, {"page_size" , "100"}});
 
     json j = json::parse(response.text);
 
@@ -335,6 +347,7 @@ void loadResultsWindowUnordered(tuple<string, string, string> results) {
 
         window.clear(sf::Color(240, 240, 240));
 
+        //TODO: Change to print top 5
         int i = 0;
         for (auto  id : sortedFoodIDs) {
             const Food& food = unorderedFoodMap[id];
@@ -599,7 +612,7 @@ tuple<string, string, string> loadSearchWindow() {
                 }
 
                 // If user clicks enter while user input is not empty
-                if (event.key.code == sf::Keyboard::Enter && !userInput.empty() && nutrientIsSelected && (lowIsSelected || highIsSelected)) {
+                if (event.key.code == sf::Keyboard::Enter && !userInput.empty() && nutrientIsSelected && (lowIsSelected || highIsSelected) && (orderedIsSelected || unorderedIsSelected)) {
                     // Open search results window
                     if (orderedIsSelected) {
                         loadResultsWindow(make_tuple(userInput, nutrient, sortMethod));
