@@ -1,3 +1,0 @@
-/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/mongoose-subbuild/CMakeFiles/mongoose-populate.dir
-/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/mongoose-subbuild/CMakeFiles/edit_cache.dir
-/Users/matthewjuranek/Project3DSA/cmake-build-debug/_deps/mongoose-subbuild/CMakeFiles/rebuild_cache.dir
