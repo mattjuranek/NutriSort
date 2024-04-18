@@ -133,27 +133,24 @@ void loadResultsWindow(tuple<string, string, string> results) {
 
     auto start = chrono::high_resolution_clock::now();
 
-    // Iterate through response pages (1 to maxPages)
-    for (int pageNumber = 1; pageNumber < maxPages + 1; pageNumber++) {
-        auto response = Get(Url{"https://us.openfoodfacts.org/cgi/search.pl"}, Parameters{{"search_terms", productName}, {"action", "process"},{"json", "true"}, {"page", to_string(pageNumber)}});
+    auto response = Get(Url{"https://us.openfoodfacts.org/cgi/search.pl"}, Parameters{{"search_terms", productName}, {"action", "process"},{"json", "true"}, {"page_count", "50"}, {"page_size" , "50"}});
 
-        json j = json::parse(response.text);
+    json j = json::parse(response.text);
 
-        if (j.contains("products") && j["products"].is_array()) {
-            for (const auto& product : j["products"]) {
+    if (j.contains("products") && j["products"].is_array()) {
+        for (const auto& product : j["products"]) {
 
-                // Retrieve food information for each product
-                string id = product.value("_id", "N/A");
-                string name = product.value("product_name", "N/A");
-                double carbohydrates = product["nutriments"].value("carbohydrates", 0.0);
-                double proteins = product["nutriments"].value("proteins", 0.0);
-                double fat = product["nutriments"].value("fat", 0.0);
-                double sugars = product["nutriments"].value("sugars", 0.0);
-                double sodium = product["nutriments"].value("sodium", 0.0);
+            // Retrieve food information for each product
+            string id = product.value("_id", "N/A");
+            string name = product.value("product_name", "N/A");
+            double carbohydrates = product["nutriments"].value("carbohydrates", 0.0);
+            double proteins = product["nutriments"].value("proteins", 0.0);
+            double fat = product["nutriments"].value("fat", 0.0);
+            double sugars = product["nutriments"].value("sugars", 0.0);
+            double sodium = product["nutriments"].value("sodium", 0.0);
 
-                // Add food object to orderedFoodMap
-                orderedFoodMap[id] = Food(id, name, carbohydrates, proteins, fat, sugars, sodium);
-            }
+            // Add food object to orderedFoodMap
+            orderedFoodMap[id] = Food(id, name, carbohydrates, proteins, fat, sugars, sodium);
         }
     }
 
@@ -287,27 +284,24 @@ void loadResultsWindowUnordered(tuple<string, string, string> results) {
 
     auto start = chrono::high_resolution_clock::now();
 
-    // Iterate through response pages (1 to maxPages)
-    for (int pageNumber = 1; pageNumber < maxPages + 1; pageNumber++) {
-        auto response = Get(Url{"https://us.openfoodfacts.org/cgi/search.pl"}, Parameters{{"search_terms", productName}, {"action", "process"},{"json", "true"}, {"page", to_string(pageNumber)}});
+    auto response = Get(Url{"https://us.openfoodfacts.org/cgi/search.pl"}, Parameters{{"search_terms", productName}, {"action", "process"},{"json", "true"}, {"page_count", "50"}, {"page_size" , "50"}});
 
-        json j = json::parse(response.text);
+    json j = json::parse(response.text);
 
-        if (j.contains("products") && j["products"].is_array()) {
-            for (const auto& product : j["products"]) {
+    if (j.contains("products") && j["products"].is_array()) {
+        for (const auto& product : j["products"]) {
 
-                // Retrieve food information for each product
-                string id = product.value("_id", "N/A");
-                string name = product.value("product_name", "N/A");
-                double carbohydrates = product["nutriments"].value("carbohydrates", 0.0);
-                double proteins = product["nutriments"].value("proteins", 0.0);
-                double fat = product["nutriments"].value("fat", 0.0);
-                double sugars = product["nutriments"].value("sugars", 0.0);
-                double sodium = product["nutriments"].value("sodium", 0.0);
+            // Retrieve food information for each product
+            string id = product.value("_id", "N/A");
+            string name = product.value("product_name", "N/A");
+            double carbohydrates = product["nutriments"].value("carbohydrates", 0.0);
+            double proteins = product["nutriments"].value("proteins", 0.0);
+            double fat = product["nutriments"].value("fat", 0.0);
+            double sugars = product["nutriments"].value("sugars", 0.0);
+            double sodium = product["nutriments"].value("sodium", 0.0);
 
-                // Add food object to unorderedFoodMap
-                unorderedFoodMap.insert(id, Food(id, name, carbohydrates, proteins, fat, sugars, sodium));
-            }
+            // Add food object to unorderedFoodMap
+            unorderedFoodMap.insert(id, Food(id, name, carbohydrates, proteins, fat, sugars, sodium));
         }
     }
 
