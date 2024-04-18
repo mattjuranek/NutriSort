@@ -197,8 +197,8 @@ void loadResultsWindow(tuple<string, string, string> results) {
 
         window.clear(sf::Color(240, 240, 240));
 
-        int i = 0;
-        for (auto  id : sortedFoodIDs) {
+        for (int i = 0; i < 5; i++) {
+            string id = sortedFoodIDs[i];
             const Food& food = orderedFoodMap[id];
 
             string nameString = to_string(i + 1) + ". " + food.name;
@@ -271,8 +271,6 @@ void loadResultsWindow(tuple<string, string, string> results) {
             line.setFillColor(sf::Color::Black);
             line.setPosition(0, 100 * i + 80);
             window.draw(line);
-
-            i++;
         }
 
         // Update window
@@ -347,9 +345,8 @@ void loadResultsWindowUnordered(tuple<string, string, string> results) {
 
         window.clear(sf::Color(240, 240, 240));
 
-        //TODO: Change to print top 5
-        int i = 0;
-        for (auto  id : sortedFoodIDs) {
+        for (int i = 0; i < 5; i++) {
+            string id = sortedFoodIDs[i];
             const Food& food = unorderedFoodMap[id];
 
             string nameString = to_string(i + 1) + ". " + food.name;
@@ -422,8 +419,6 @@ void loadResultsWindowUnordered(tuple<string, string, string> results) {
             line.setFillColor(sf::Color::Black);
             line.setPosition(0, 100 * i + 80);
             window.draw(line);
-
-            i++;
         }
 
         // Update window
