@@ -520,6 +520,22 @@ tuple<string, string, string> loadSearchWindow() {
     highBox.setOutlineThickness(1);
     highBox.setPosition(470, 455);
 
+    // Text object for "Ordered"
+    sf::Text orderedLabel;
+    orderedLabel.setFont(textFont);
+    orderedLabel.setString("Ordered");
+    orderedLabel.setCharacterSize(24);
+    orderedLabel.setFillColor(sf::Color::Black);
+    orderedLabel.setPosition(500, 480);
+
+    // Text object for "Unordered"
+    sf::Text unorderedLabel;
+    unorderedLabel.setFont(textFont);
+    unorderedLabel.setString("Unordered");
+    unorderedLabel.setCharacterSize(24);
+    unorderedLabel.setFillColor(sf::Color::Black);
+    unorderedLabel.setPosition(250, 480);
+
     // Rectangle for ordered select box
     sf::RectangleShape orderedBox(sf::Vector2f(20, 20));
     orderedBox.setFillColor(sf::Color::White);
@@ -820,6 +836,8 @@ tuple<string, string, string> loadSearchWindow() {
         window.draw(searchLabel);
         window.draw(highLabel);
         window.draw(lowLabel);
+        window.draw(orderedLabel);
+        window.draw(unorderedLabel);
         window.draw(restrictionLabel);
         window.draw(highBox);
         window.draw(lowBox);
