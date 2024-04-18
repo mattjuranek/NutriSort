@@ -16,7 +16,29 @@ private:
     int capacity;
 
 public:
+
     unordered_map(int cap = 100000) : capacity(cap), size(0), hashTable(cap) {}
+
+    void printAll() const {
+        std::cout << "Contents of unordered_map:\n";
+        for (int i = 0; i < capacity; ++i) {
+            if (!hashTable[i].empty()) {
+                for (const auto& pair : hashTable[i]) {
+                    std::cout << "Key: " << pair.first << ", Value: " << pair.second << std::endl;
+                }
+            }
+        }
+    }
+
+    vector<pair<K, V>> getAll() const {
+        vector<pair<K, V>> elements;
+        for (const auto& bucket : hashTable) {
+            for (const auto& pair : bucket) {
+                elements.push_back(pair);
+            }
+        }
+        return elements;
+    }
 
     int hash(K key)
     {
@@ -61,6 +83,21 @@ public:
         }
         return false;
     }
+
+    V& operator[](const K& key) {
+        int index = hash(key);
+
+        for (auto& x : hashTable[index]) {
+            if (x.first == key) {
+                return x.second;
+            }
+        }
+
+        hashTable[index].push_back(make_pair(key, V()));
+        size++;
+        return hashTable[index].back().second;
+    }
+
 
     int getSize()
     {

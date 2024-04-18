@@ -62,9 +62,45 @@ vector<string> sortHigh(const map<string, Food>& foodMap, const string& nutrient
     return sortedIDs;
 }
 
+vector<string> sortHighUnordered(::unordered_map<string, Food>& foodMap, const string& nutrient) {
+    // Retrieve all items from unordered map, put in vector of pairs for sorting
+    vector<pair<string, Food>> foodItems = foodMap.getAll();
+
+    // Sort using the compareHigh function
+    sort(foodItems.begin(), foodItems.end(), [&nutrient](const pair<string, Food>& a, const pair<string, Food>& b) {
+        return compareHigh(a, b, nutrient);
+    });
+
+    // Add sorted IDs to vector
+    vector<string> sortedIDs;
+    for (const auto& item : foodItems) {
+        sortedIDs.push_back(item.first);
+    }
+
+    return sortedIDs;
+}
+
 vector<string> sortLow(const map<string, Food>& foodMap, const string& nutrient) {
     // Convert map to vector of pairs for sorting
     vector<pair<string, Food>> foodItems(foodMap.begin(), foodMap.end());
+
+    // Sort using compareLow function
+    sort(foodItems.begin(), foodItems.end(), [&nutrient](const pair<string, Food>& a, const pair<string, Food>& b) {
+        return compareLow(a, b, nutrient);
+    });
+
+    // Add sorted IDs to vector
+    vector<string> sortedIDs;
+    for (const auto& item : foodItems) {
+        sortedIDs.push_back(item.first);
+    }
+
+    return sortedIDs;
+}
+
+vector<string> sortLowUnordered(::unordered_map<string, Food>& foodMap, const string& nutrient) {
+    // Retrieve all items from unordered map, put in vector of pairs for sorting
+    vector<pair<string, Food>> foodItems = foodMap.getAll();
 
     // Sort using compareLow function
     sort(foodItems.begin(), foodItems.end(), [&nutrient](const pair<string, Food>& a, const pair<string, Food>& b) {
@@ -84,7 +120,7 @@ void loadResultsWindow(tuple<string, string, string> results) {
     string productName = std::get<0>(results);
     string nutrient = std::get<1>(results);
     string sortMethod = std::get<2>(results);
-    map<string, Food> foodMap;
+    map<string, Food> orderedFoodMap;
     int maxPages = 1;
 
     sf::RenderWindow window(sf::VideoMode(800, 600), "NutriSort");
@@ -115,8 +151,8 @@ void loadResultsWindow(tuple<string, string, string> results) {
                 double sugars = product["nutriments"].value("sugars", 0.0);
                 double sodium = product["nutriments"].value("sodium", 0.0);
 
-                // Add food object to foodMap
-                foodMap[id] = Food(id, name, carbohydrates, proteins, fat, sugars, sodium);
+                // Add food object to orderedFoodMap
+                orderedFoodMap[id] = Food(id, name, carbohydrates, proteins, fat, sugars, sodium);
             }
         }
     }
@@ -125,10 +161,10 @@ void loadResultsWindow(tuple<string, string, string> results) {
     vector<string> sortedFoodIDs;
 
     if (sortMethod == "high") {
-        sortedFoodIDs = sortHigh(foodMap, nutrient);
+        sortedFoodIDs = sortHigh(orderedFoodMap, nutrient);
     }
     else if (sortMethod == "low") {
-        sortedFoodIDs = sortLow(foodMap, nutrient);
+        sortedFoodIDs = sortLow(orderedFoodMap, nutrient);
     }
 
     // Stop the timer
@@ -153,7 +189,161 @@ void loadResultsWindow(tuple<string, string, string> results) {
 
         int i = 0;
         for (auto  id : sortedFoodIDs) {
-            const Food& food = foodMap[id];
+            const Food& food = orderedFoodMap[id];
+
+            string nameString = to_string(i + 1) + ". " + food.name;
+            string proteinString = "Protein: " + to_string(int(food.proteins));
+            string carbsString = "Carbohydrates: " + to_string(int(food.carbohydrates));
+            string fatsString = "Fats: " + to_string(int(food.fat));
+            string sugarsString = "Sugars: " + to_string(int(food.sugars));
+            string sodiumString = "Sodium: " + to_string(int(food.sodium));
+
+            // Text object for food name
+            sf::Text name;
+            name.setFont(textFont);
+            name.setString(nameString);
+            name.setCharacterSize(20);
+            name.setFillColor(sf::Color::Black);
+            name.setStyle(sf::Text::Bold);
+            name.setPosition(20, 100 * i + 20);
+            window.draw(name);
+
+            // Text object for protein
+            sf::Text protein;
+            protein.setFont(textFont);
+            protein.setString(proteinString);
+            protein.setCharacterSize(20);
+            protein.setFillColor(sf::Color::Black);
+            protein.setPosition(50, 100 * i + 50);
+            window.draw(protein);
+
+            // Text object for carbs
+            sf::Text carbs;
+            carbs.setFont(textFont);
+            carbs.setString(carbsString);
+            carbs.setCharacterSize(20);
+            carbs.setFillColor(sf::Color::Black);
+            carbs.setPosition(200, 100 * i + 50);
+            window.draw(carbs);
+
+            // Text object for fats
+            sf::Text fats;
+            fats.setFont(textFont);
+            fats.setString(fatsString);
+            fats.setCharacterSize(20);
+            fats.setFillColor(sf::Color::Black);
+            fats.setPosition(420, 100 * i + 50);
+            window.draw(fats);
+
+            // Text object for sugars
+            sf::Text sugars;
+            sugars.setFont(textFont);
+            sugars.setString(sugarsString);
+            sugars.setCharacterSize(20);
+            sugars.setFillColor(sf::Color::Black);
+            sugars.setPosition(550, 100 * i + 50);
+            window.draw(sugars);
+
+            // Text object for sodium
+            sf::Text sodium;
+            sodium.setFont(textFont);
+            sodium.setString(sodiumString);
+            sodium.setCharacterSize(20);
+            sodium.setFillColor(sf::Color::Black);
+            sodium.setPosition(700, 100 * i + 50);
+            window.draw(sodium);
+
+            // Text object for line
+            sf::Text line;
+            line.setFont(textFont);
+            line.setString("____________________________________________________________________________________________________");
+            line.setCharacterSize(20);
+            line.setFillColor(sf::Color::Black);
+            line.setPosition(0, 100 * i + 80);
+            window.draw(line);
+
+            i++;
+        }
+
+        // Update window
+        window.display();
+    }
+}
+
+void loadResultsWindowUnordered(tuple<string, string, string> results) {
+    string productName = std::get<0>(results);
+    string nutrient = std::get<1>(results);
+    string sortMethod = std::get<2>(results);
+    ::unordered_map<string, Food> unorderedFoodMap;
+    int maxPages = 1;
+
+    sf::RenderWindow window(sf::VideoMode(800, 600), "NutriSort");
+
+    // Load font files
+    sf::Font textFont;
+    if (!textFont.loadFromFile("../textFont.ttf")) {
+        return;
+    }
+
+    auto start = chrono::high_resolution_clock::now();
+
+    // Iterate through response pages (1 to maxPages)
+    for (int pageNumber = 1; pageNumber < maxPages + 1; pageNumber++) {
+        auto response = Get(Url{"https://us.openfoodfacts.org/cgi/search.pl"}, Parameters{{"search_terms", productName}, {"action", "process"},{"json", "true"}, {"page", to_string(pageNumber)}});
+
+        json j = json::parse(response.text);
+
+        if (j.contains("products") && j["products"].is_array()) {
+            for (const auto& product : j["products"]) {
+
+                // Retrieve food information for each product
+                string id = product.value("_id", "N/A");
+                string name = product.value("product_name", "N/A");
+                double carbohydrates = product["nutriments"].value("carbohydrates", 0.0);
+                double proteins = product["nutriments"].value("proteins", 0.0);
+                double fat = product["nutriments"].value("fat", 0.0);
+                double sugars = product["nutriments"].value("sugars", 0.0);
+                double sodium = product["nutriments"].value("sodium", 0.0);
+
+                // Add food object to unorderedFoodMap
+                unorderedFoodMap.insert(id, Food(id, name, carbohydrates, proteins, fat, sugars, sodium));
+            }
+        }
+    }
+
+    // Sort foods by desired nutrient
+    vector<string> sortedFoodIDs;
+
+    if (sortMethod == "high") {
+        sortedFoodIDs = sortHighUnordered(unorderedFoodMap, nutrient);
+    }
+    else if (sortMethod == "low") {
+        sortedFoodIDs = sortLowUnordered(unorderedFoodMap, nutrient);
+    }
+
+    // Stop the timer
+    auto stop = chrono::high_resolution_clock::now();
+
+    // Calculate duration
+    auto duration = chrono::duration_cast<chrono::seconds>(stop - start);
+
+    // Output duration
+    cout << "Time to process: " << duration.count() << " seconds" << endl << endl;
+
+
+    while (window.isOpen()) {
+        sf::Event event;
+        while (window.pollEvent(event))
+        {
+            if (event.type == sf::Event::Closed)
+                window.close();
+        }
+
+        window.clear(sf::Color(240, 240, 240));
+
+        int i = 0;
+        for (auto  id : sortedFoodIDs) {
+            const Food& food = unorderedFoodMap[id];
 
             string nameString = to_string(i + 1) + ". " + food.name;
             string proteinString = "Protein: " + to_string(int(food.proteins));
@@ -404,6 +594,8 @@ tuple<string, string, string> loadSearchWindow() {
                     // Close search window
                     // Open search results window
                     // Return tuple here with string userInput, string nutrient, string sortMethod
+
+                    //TODO: Implement method to select ordered vs unordered map, load the associated window
                     loadResultsWindow(make_tuple(userInput, nutrient, sortMethod));
                     window.close();
                 }
