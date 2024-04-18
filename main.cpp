@@ -428,6 +428,8 @@ tuple<string, string, string> loadSearchWindow() {
     bool lowIsSelected = false;
     bool highIsSelected = false;
     bool nutrientIsSelected = false;
+    bool orderedIsSelected = false;
+    bool unorderedIsSelected = false;
     string sortMethod = "";
     string nutrient = "";
     string userInput = "";
@@ -516,6 +518,20 @@ tuple<string, string, string> loadSearchWindow() {
     highBox.setOutlineThickness(1);
     highBox.setPosition(470, 455);
 
+    // Rectangle for ordered select box
+    sf::RectangleShape orderedBox(sf::Vector2f(20, 20));
+    orderedBox.setFillColor(sf::Color::White);
+    orderedBox.setOutlineColor(sf::Color::Black);
+    orderedBox.setOutlineThickness(1);
+    orderedBox.setPosition(470, 485);
+
+    // Rectangle for unordered select box
+    sf::RectangleShape unorderedBox(sf::Vector2f(20, 20));
+    unorderedBox.setFillColor(sf::Color::White);
+    unorderedBox.setOutlineColor(sf::Color::Black);
+    unorderedBox.setOutlineThickness(1);
+    unorderedBox.setPosition(220, 485);
+
     // Rectangle for search bar
     sf::RectangleShape searchBar(sf::Vector2f(700, 40));
     searchBar.setFillColor(sf::Color::White);
@@ -590,13 +606,14 @@ tuple<string, string, string> loadSearchWindow() {
 
                 // If user clicks enter while user input is not empty
                 if (event.key.code == sf::Keyboard::Enter && !userInput.empty() && nutrientIsSelected && (lowIsSelected || highIsSelected)) {
-
-                    // Close search window
                     // Open search results window
-                    // Return tuple here with string userInput, string nutrient, string sortMethod
-
-                    //TODO: Implement method to select ordered vs unordered map, load the associated window
-                    loadResultsWindow(make_tuple(userInput, nutrient, sortMethod));
+                    if (orderedIsSelected) {
+                        loadResultsWindow(make_tuple(userInput, nutrient, sortMethod));
+                    }
+                    else if (unorderedIsSelected) {
+                        loadResultsWindowUnordered(make_tuple(userInput, nutrient, sortMethod));
+                    }
+                    // Close search window
                     window.close();
                 }
             }
@@ -655,6 +672,40 @@ tuple<string, string, string> loadSearchWindow() {
                             lowBox.setFillColor(sf::Color::White);
                             lowIsSelected = false;
                             sortMethod = "";
+                        }
+                    }
+
+                    // Ordered button
+                    if (orderedBox.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
+                        if (!orderedIsSelected) {
+                            orderedBox.setFillColor(sf::Color::Black);
+                            orderedIsSelected = true;
+
+                            if (orderedIsSelected) {
+                                unorderedBox.setFillColor(sf::Color::White);
+                                unorderedIsSelected = false;
+                            }
+                        }
+                        else {
+                            orderedBox.setFillColor(sf::Color::White);
+                            orderedIsSelected = false;
+                        }
+                    }
+
+                    // Unordered button
+                    if (unorderedBox.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
+                        if (!unorderedIsSelected) {
+                            unorderedBox.setFillColor(sf::Color::Black);
+                            unorderedIsSelected = true;
+
+                            if (unorderedIsSelected) {
+                                orderedBox.setFillColor(sf::Color::White);
+                                orderedIsSelected = false;
+                            }
+                        }
+                        else {
+                            unorderedBox.setFillColor(sf::Color::White);
+                            unorderedIsSelected = false;
                         }
                     }
 
@@ -770,6 +821,8 @@ tuple<string, string, string> loadSearchWindow() {
         window.draw(restrictionLabel);
         window.draw(highBox);
         window.draw(lowBox);
+        window.draw(orderedBox);
+        window.draw(unorderedBox);
         window.draw(proteinLabel);
         window.draw(carbLabel);
         window.draw(fatLabel);
