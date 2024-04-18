@@ -130,7 +130,7 @@ vector<string> sortLowUnordered(::unordered_map<string, Food>& foodMap, const st
     return sortedIDs;
 }
 
-void loadResultsWindow(tuple<string, string, string> results) {
+void loadResultsWindowOrdered(tuple<string, string, string> results) {
     string productName = std::get<0>(results);
     string nutrient = std::get<1>(results);
     string sortMethod = std::get<2>(results);
@@ -181,11 +181,10 @@ void loadResultsWindow(tuple<string, string, string> results) {
     auto stop = chrono::high_resolution_clock::now();
 
     // Calculate duration
-    auto duration = chrono::duration_cast<chrono::seconds>(stop - start);
+    auto duration = chrono::duration_cast<chrono::milliseconds>(stop - start);
 
     // Output duration
-    cout << "Time to process: " << duration.count() << " seconds" << endl << endl;
-
+    cout << "Time to process: " << duration.count() << " milliseconds" << endl << endl;
 
     while (window.isOpen()) {
         sf::Event event;
@@ -197,11 +196,31 @@ void loadResultsWindow(tuple<string, string, string> results) {
 
         window.clear(sf::Color(240, 240, 240));
 
-        for (int i = 0; i < 5; i++) {
+        // Text object for "Ordered"
+        sf::Text orderString;
+        orderString.setFont(textFont);
+        orderString.setString("Ordered");
+        orderString.setCharacterSize(20);
+        orderString.setFillColor(sf::Color::Black);
+        orderString.setStyle(sf::Text::Bold);
+        orderString.setPosition(20, 20);
+        window.draw(orderString);
+
+        // Text object for time
+        sf::Text timeString;
+        timeString.setFont(textFont);
+        timeString.setString("Time to process: " + to_string(duration.count() / 1000.0) + " seconds");
+        timeString.setCharacterSize(20);
+        timeString.setFillColor(sf::Color::Black);
+        timeString.setStyle(sf::Text::Bold);
+        timeString.setPosition(200, 20);
+        window.draw(timeString);
+
+        for (int i = 1; i < 6; i++) {
             string id = sortedFoodIDs[i];
             const Food& food = orderedFoodMap[id];
 
-            string nameString = to_string(i + 1) + ". " + food.name;
+            string nameString = to_string(i) + ". " + food.name;
             string proteinString = "Protein: " + to_string(int(food.proteins));
             string carbsString = "Carbohydrates: " + to_string(int(food.carbohydrates));
             string fatsString = "Fats: " + to_string(int(food.fat));
@@ -221,8 +240,8 @@ void loadResultsWindow(tuple<string, string, string> results) {
             // Text object for protein
             sf::Text protein;
             protein.setFont(textFont);
-            protein.setString(proteinString);
-            protein.setCharacterSize(20);
+            protein.setString(proteinString + "g");
+            protein.setCharacterSize(18);
             protein.setFillColor(sf::Color::Black);
             protein.setPosition(50, 100 * i + 50);
             window.draw(protein);
@@ -230,8 +249,8 @@ void loadResultsWindow(tuple<string, string, string> results) {
             // Text object for carbs
             sf::Text carbs;
             carbs.setFont(textFont);
-            carbs.setString(carbsString);
-            carbs.setCharacterSize(20);
+            carbs.setString(carbsString + "g");
+            carbs.setCharacterSize(18);
             carbs.setFillColor(sf::Color::Black);
             carbs.setPosition(200, 100 * i + 50);
             window.draw(carbs);
@@ -239,8 +258,8 @@ void loadResultsWindow(tuple<string, string, string> results) {
             // Text object for fats
             sf::Text fats;
             fats.setFont(textFont);
-            fats.setString(fatsString);
-            fats.setCharacterSize(20);
+            fats.setString(fatsString + "g");
+            fats.setCharacterSize(18);
             fats.setFillColor(sf::Color::Black);
             fats.setPosition(420, 100 * i + 50);
             window.draw(fats);
@@ -248,8 +267,8 @@ void loadResultsWindow(tuple<string, string, string> results) {
             // Text object for sugars
             sf::Text sugars;
             sugars.setFont(textFont);
-            sugars.setString(sugarsString);
-            sugars.setCharacterSize(20);
+            sugars.setString(sugarsString + "g");
+            sugars.setCharacterSize(18);
             sugars.setFillColor(sf::Color::Black);
             sugars.setPosition(550, 100 * i + 50);
             window.draw(sugars);
@@ -257,8 +276,8 @@ void loadResultsWindow(tuple<string, string, string> results) {
             // Text object for sodium
             sf::Text sodium;
             sodium.setFont(textFont);
-            sodium.setString(sodiumString);
-            sodium.setCharacterSize(20);
+            sodium.setString(sodiumString + "g");
+            sodium.setCharacterSize(18);
             sodium.setFillColor(sf::Color::Black);
             sodium.setPosition(700, 100 * i + 50);
             window.draw(sodium);
@@ -267,7 +286,7 @@ void loadResultsWindow(tuple<string, string, string> results) {
             sf::Text line;
             line.setFont(textFont);
             line.setString("____________________________________________________________________________________________________");
-            line.setCharacterSize(20);
+            line.setCharacterSize(18);
             line.setFillColor(sf::Color::Black);
             line.setPosition(0, 100 * i + 80);
             window.draw(line);
@@ -329,10 +348,10 @@ void loadResultsWindowUnordered(tuple<string, string, string> results) {
     auto stop = chrono::high_resolution_clock::now();
 
     // Calculate duration
-    auto duration = chrono::duration_cast<chrono::seconds>(stop - start);
+    auto duration = chrono::duration_cast<chrono::milliseconds >(stop - start);
 
     // Output duration
-    cout << "Time to process: " << duration.count() << " seconds" << endl << endl;
+    cout << "Time to process: " << duration.count() << " milliseconds" << endl << endl;
 
 
     while (window.isOpen()) {
@@ -345,11 +364,31 @@ void loadResultsWindowUnordered(tuple<string, string, string> results) {
 
         window.clear(sf::Color(240, 240, 240));
 
-        for (int i = 0; i < 5; i++) {
+        // Text object for "Unordered"
+        sf::Text unorderString;
+        unorderString.setFont(textFont);
+        unorderString.setString("Unordered");
+        unorderString.setCharacterSize(20);
+        unorderString.setFillColor(sf::Color::Black);
+        unorderString.setStyle(sf::Text::Bold);
+        unorderString.setPosition(20, 20);
+        window.draw(unorderString);
+
+        // Text object for time
+        sf::Text timeString;
+        timeString.setFont(textFont);
+        timeString.setString("Time to process: " + to_string(duration.count() / 1000.0) + " seconds");
+        timeString.setCharacterSize(20);
+        timeString.setFillColor(sf::Color::Black);
+        timeString.setStyle(sf::Text::Bold);
+        timeString.setPosition(200, 20);
+        window.draw(timeString);
+
+        for (int i = 1; i < 6; i++) {
             string id = sortedFoodIDs[i];
             const Food& food = unorderedFoodMap[id];
 
-            string nameString = to_string(i + 1) + ". " + food.name;
+            string nameString = to_string(i) + ". " + food.name;
             string proteinString = "Protein: " + to_string(int(food.proteins));
             string carbsString = "Carbohydrates: " + to_string(int(food.carbohydrates));
             string fatsString = "Fats: " + to_string(int(food.fat));
@@ -369,8 +408,8 @@ void loadResultsWindowUnordered(tuple<string, string, string> results) {
             // Text object for protein
             sf::Text protein;
             protein.setFont(textFont);
-            protein.setString(proteinString);
-            protein.setCharacterSize(20);
+            protein.setString(proteinString + "g");
+            protein.setCharacterSize(18);
             protein.setFillColor(sf::Color::Black);
             protein.setPosition(50, 100 * i + 50);
             window.draw(protein);
@@ -378,8 +417,8 @@ void loadResultsWindowUnordered(tuple<string, string, string> results) {
             // Text object for carbs
             sf::Text carbs;
             carbs.setFont(textFont);
-            carbs.setString(carbsString);
-            carbs.setCharacterSize(20);
+            carbs.setString(carbsString + "g");
+            carbs.setCharacterSize(18);
             carbs.setFillColor(sf::Color::Black);
             carbs.setPosition(200, 100 * i + 50);
             window.draw(carbs);
@@ -387,8 +426,8 @@ void loadResultsWindowUnordered(tuple<string, string, string> results) {
             // Text object for fats
             sf::Text fats;
             fats.setFont(textFont);
-            fats.setString(fatsString);
-            fats.setCharacterSize(20);
+            fats.setString(fatsString + "g");
+            fats.setCharacterSize(18);
             fats.setFillColor(sf::Color::Black);
             fats.setPosition(420, 100 * i + 50);
             window.draw(fats);
@@ -396,8 +435,8 @@ void loadResultsWindowUnordered(tuple<string, string, string> results) {
             // Text object for sugars
             sf::Text sugars;
             sugars.setFont(textFont);
-            sugars.setString(sugarsString);
-            sugars.setCharacterSize(20);
+            sugars.setString(sugarsString + "g");
+            sugars.setCharacterSize(18);
             sugars.setFillColor(sf::Color::Black);
             sugars.setPosition(550, 100 * i + 50);
             window.draw(sugars);
@@ -405,8 +444,8 @@ void loadResultsWindowUnordered(tuple<string, string, string> results) {
             // Text object for sodium
             sf::Text sodium;
             sodium.setFont(textFont);
-            sodium.setString(sodiumString);
-            sodium.setCharacterSize(20);
+            sodium.setString(sodiumString + "g");
+            sodium.setCharacterSize(18);
             sodium.setFillColor(sf::Color::Black);
             sodium.setPosition(700, 100 * i + 50);
             window.draw(sodium);
@@ -415,7 +454,7 @@ void loadResultsWindowUnordered(tuple<string, string, string> results) {
             sf::Text line;
             line.setFont(textFont);
             line.setString("____________________________________________________________________________________________________");
-            line.setCharacterSize(20);
+            line.setCharacterSize(18);
             line.setFillColor(sf::Color::Black);
             line.setPosition(0, 100 * i + 80);
             window.draw(line);
@@ -626,7 +665,7 @@ tuple<string, string, string> loadSearchWindow() {
                 if (event.key.code == sf::Keyboard::Enter && !userInput.empty() && nutrientIsSelected && (lowIsSelected || highIsSelected) && (orderedIsSelected || unorderedIsSelected)) {
                     // Open search results window
                     if (orderedIsSelected) {
-                        loadResultsWindow(make_tuple(userInput, nutrient, sortMethod));
+                        loadResultsWindowOrdered(make_tuple(userInput, nutrient, sortMethod));
                     }
                     else if (unorderedIsSelected) {
                         loadResultsWindowUnordered(make_tuple(userInput, nutrient, sortMethod));
