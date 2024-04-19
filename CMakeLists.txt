@@ -8,6 +8,8 @@ option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
 
 add_executable(NutriSort main.cpp Food.h Food.cpp)
 
+cmake_policy(SET CMP0148 NEW)
+
 include(FetchContent)
 
 FetchContent_Declare(
@@ -28,7 +30,13 @@ FetchContent_Declare(
         GIT_TAG v3.11.2
 )
 
+set(CPR_BUILD_TESTS_SSL OFF)
+
 FetchContent_MakeAvailable(SFML cpr json)
+
+include_directories(${cpr_SOURCE_DIR}/include)
+
+add_executable(NutriSort main.cpp Food.h Food.cpp)
 
 if(json_POPULATED)
     include_directories(${json_SOURCE_DIR}/single_include)
@@ -44,5 +52,7 @@ if(WIN32)
             PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different ${SFML_SOURCE_DIR}/extlibs/bin/$<IF:$<EQUAL:${CMAKE_SIZEOF_VOID_P},8>,x64,x86>/openal32.dll $<TARGET_FILE_DIR:Project3DSA>
             VERBATIM)
 endif()
+
+target_link_libraries(NutriSort PRIVATE cpr::cpr sfml-system sfml-window sfml-graphics sfml-audio)
 
 install(TARGETS NutriSort)

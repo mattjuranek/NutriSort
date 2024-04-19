@@ -1,7 +1,7 @@
 # Distributed under the OSI-approved BSD 3-Clause License.  See accompanying
 # file Copyright.txt or https://cmake.org/licensing for details.
 
-cmake_minimum_required(VERSION 3.27.8)
+cmake_minimum_required(VERSION 3.28.1)
 
 # Reject any attempt to use a toolchain file. We must not use one because
 # we could be downloading it here. If the CMAKE_TOOLCHAIN_FILE environment
@@ -20,8 +20,8 @@ project(googletest-populate NONE)
 include(ExternalProject)
 ExternalProject_Add(googletest-populate
                      "UPDATE_DISCONNECTED" "False" "DOWNLOAD_EXTRACT_TIMESTAMP" "TRUE" "EXTERNALPROJECT_INTERNAL_ARGUMENT_SEPARATOR" "URL" "https://github.com/google/googletest/archive/release-1.10.0.tar.gz" "URL_HASH" "SHA256=9dc9157a9a1551ec7a7e43daea9a694a0bb5fb8bec81235d8a1e6ef64c716dcb"
-                    SOURCE_DIR          "/Users/matthewjuranek/Documents/NutriSort/cmake-build-debug/_deps/googletest-src"
-                    BINARY_DIR          "/Users/matthewjuranek/Documents/NutriSort/cmake-build-debug/_deps/googletest-build"
+                    SOURCE_DIR          "C:/Users/matth/CLionProjects/NutriSort/cmake-build-debug/_deps/googletest-src"
+                    BINARY_DIR          "C:/Users/matth/CLionProjects/NutriSort/cmake-build-debug/_deps/googletest-build"
                     CONFIGURE_COMMAND   ""
                     BUILD_COMMAND       ""
                     INSTALL_COMMAND     ""
