@@ -1,0 +1,23 @@
+# ninja log v5
+7	168	7352578156217598	mongoose-populate-prefix/src/mongoose-populate-stamp/mongoose-populate-mkdir	cec0b556b37addce
+169	2662	7352578156217598	mongoose-populate-prefix/src/6.18.tar.gz	7bdc9df75ee859fd
+7	168	7352578156217598	C:/Users/matth/CLionProjects/NutriSort/cmake-build-debug/_deps/mongoose-subbuild/mongoose-populate-prefix/src/mongoose-populate-stamp/mongoose-populate-mkdir	cec0b556b37addce
+169	2662	7352578156217598	C:/Users/matth/CLionProjects/NutriSort/cmake-build-debug/_deps/mongoose-subbuild/mongoose-populate-prefix/src/6.18.tar.gz	7bdc9df75ee859fd
+2665	2841	7352578182935622	C:/Users/matth/CLionProjects/NutriSort/cmake-build-debug/_deps/mongoose-subbuild/mongoose-populate-prefix/src/mongoose-populate-stamp/mongoose-populate-update	372bb416538793b4
+169	2662	7352578156217598	mongoose-populate-prefix/src/mongoose-populate-stamp/mongoose-populate-download	7bdc9df75ee859fd
+169	2662	7352578156217598	C:/Users/matth/CLionProjects/NutriSort/cmake-build-debug/_deps/mongoose-subbuild/mongoose-populate-prefix/src/mongoose-populate-stamp/mongoose-populate-download	7bdc9df75ee859fd
+2665	2841	7352578182935622	mongoose-populate-prefix/src/mongoose-populate-stamp/mongoose-populate-update	372bb416538793b4
+2841	2996	7352578184475327	mongoose-populate-prefix/src/mongoose-populate-stamp/mongoose-populate-patch	37acbd0c9d9a41ae
+2841	2996	7352578184475327	C:/Users/matth/CLionProjects/NutriSort/cmake-build-debug/_deps/mongoose-subbuild/mongoose-populate-prefix/src/mongoose-populate-stamp/mongoose-populate-patch	37acbd0c9d9a41ae
+2996	3178	7352578186307917	mongoose-populate-prefix/src/mongoose-populate-stamp/mongoose-populate-configure	45fab9876de055e5
+2996	3178	7352578186307917	C:/Users/matth/CLionProjects/NutriSort/cmake-build-debug/_deps/mongoose-subbuild/mongoose-populate-prefix/src/mongoose-populate-stamp/mongoose-populate-configure	45fab9876de055e5
+3179	3339	7352578187904858	mongoose-populate-prefix/src/mongoose-populate-stamp/mongoose-populate-build	3add45bdeacfdfe5
+3179	3339	7352578187904858	C:/Users/matth/CLionProjects/NutriSort/cmake-build-debug/_deps/mongoose-subbuild/mongoose-populate-prefix/src/mongoose-populate-stamp/mongoose-populate-build	3add45bdeacfdfe5
+3339	3496	7352578189492277	mongoose-populate-prefix/src/mongoose-populate-stamp/mongoose-populate-install	6e41c1d6201d750c
+3339	3496	7352578189492277	C:/Users/matth/CLionProjects/NutriSort/cmake-build-debug/_deps/mongoose-subbuild/mongoose-populate-prefix/src/mongoose-populate-stamp/mongoose-populate-install	6e41c1d6201d750c
+3497	3652	7352578191048715	mongoose-populate-prefix/src/mongoose-populate-stamp/mongoose-populate-test	aca46fd364d630db
+3497	3652	7352578191048715	C:/Users/matth/CLionProjects/NutriSort/cmake-build-debug/_deps/mongoose-subbuild/mongoose-populate-prefix/src/mongoose-populate-stamp/mongoose-populate-test	aca46fd364d630db
+3653	3889	7352578193423640	CMakeFiles/mongoose-populate-complete	1ce0bf179c880a07
+3653	3889	7352578193423640	mongoose-populate-prefix/src/mongoose-populate-stamp/mongoose-populate-done	1ce0bf179c880a07
+3653	3889	7352578193423640	C:/Users/matth/CLionProjects/NutriSort/cmake-build-debug/_deps/mongoose-subbuild/CMakeFiles/mongoose-populate-complete	1ce0bf179c880a07
+3653	3889	7352578193423640	C:/Users/matth/CLionProjects/NutriSort/cmake-build-debug/_deps/mongoose-subbuild/mongoose-populate-prefix/src/mongoose-populate-stamp/mongoose-populate-done	1ce0bf179c880a07
