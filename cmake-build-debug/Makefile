@@ -182,17 +182,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Project3DSA
+# Target rules for targets named NutriSort
 
 # Build rule for target.
-Project3DSA: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Project3DSA
-.PHONY : Project3DSA
+NutriSort: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 NutriSort
+.PHONY : NutriSort
 
 # fast build rule for target.
-Project3DSA/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project3DSA.dir/build.make CMakeFiles/Project3DSA.dir/build
-.PHONY : Project3DSA/fast
+NutriSort/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/NutriSort.dir/build.make CMakeFiles/NutriSort.dir/build
+.PHONY : NutriSort/fast
 
 #=============================================================================
 # Target rules for targets named sfml-system
@@ -381,7 +381,7 @@ Food.o: Food.cpp.o
 
 # target to build an object file
 Food.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project3DSA.dir/build.make CMakeFiles/Project3DSA.dir/Food.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/NutriSort.dir/build.make CMakeFiles/NutriSort.dir/Food.cpp.o
 .PHONY : Food.cpp.o
 
 Food.i: Food.cpp.i
@@ -389,7 +389,7 @@ Food.i: Food.cpp.i
 
 # target to preprocess a source file
 Food.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project3DSA.dir/build.make CMakeFiles/Project3DSA.dir/Food.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/NutriSort.dir/build.make CMakeFiles/NutriSort.dir/Food.cpp.i
 .PHONY : Food.cpp.i
 
 Food.s: Food.cpp.s
@@ -397,7 +397,7 @@ Food.s: Food.cpp.s
 
 # target to generate assembly for a file
 Food.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project3DSA.dir/build.make CMakeFiles/Project3DSA.dir/Food.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/NutriSort.dir/build.make CMakeFiles/NutriSort.dir/Food.cpp.s
 .PHONY : Food.cpp.s
 
 main.o: main.cpp.o
@@ -405,7 +405,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project3DSA.dir/build.make CMakeFiles/Project3DSA.dir/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/NutriSort.dir/build.make CMakeFiles/NutriSort.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -413,7 +413,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project3DSA.dir/build.make CMakeFiles/Project3DSA.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/NutriSort.dir/build.make CMakeFiles/NutriSort.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -421,7 +421,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project3DSA.dir/build.make CMakeFiles/Project3DSA.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/NutriSort.dir/build.make CMakeFiles/NutriSort.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -439,7 +439,7 @@ help:
 	@echo "... package_source"
 	@echo "... rebuild_cache"
 	@echo "... uninstall"
-	@echo "... Project3DSA"
+	@echo "... NutriSort"
 	@echo "... cpr"
 	@echo "... gmock"
 	@echo "... gmock_main"
