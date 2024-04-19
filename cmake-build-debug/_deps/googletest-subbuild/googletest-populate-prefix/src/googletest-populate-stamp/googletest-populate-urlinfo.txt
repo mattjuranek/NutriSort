@@ -3,9 +3,9 @@
 # No other meaning or use of this file is supported.
 
 method=url
-command=C:/Program Files/JetBrains/CLion 2024.1/bin/cmake/win/x64/bin/cmake.exe;-P;C:/Users/matth/CLionProjects/NutriSort/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/download-googletest-populate.cmake;COMMAND;C:/Program Files/JetBrains/CLion 2024.1/bin/cmake/win/x64/bin/cmake.exe;-P;C:/Users/matth/CLionProjects/NutriSort/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/verify-googletest-populate.cmake;COMMAND;C:/Program Files/JetBrains/CLion 2024.1/bin/cmake/win/x64/bin/cmake.exe;-P;C:/Users/matth/CLionProjects/NutriSort/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/extract-googletest-populate.cmake
-source_dir=C:/Users/matth/CLionProjects/NutriSort/cmake-build-debug/_deps/googletest-src
-work_dir=C:/Users/matth/CLionProjects/NutriSort/cmake-build-debug/_deps
+command=/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake;-P;/Users/matthewjuranek/Documents/NutriSort/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/download-googletest-populate.cmake;COMMAND;/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake;-P;/Users/matthewjuranek/Documents/NutriSort/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/verify-googletest-populate.cmake;COMMAND;/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake;-P;/Users/matthewjuranek/Documents/NutriSort/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/extract-googletest-populate.cmake
+source_dir=/Users/matthewjuranek/Documents/NutriSort/cmake-build-debug/_deps/googletest-src
+work_dir=/Users/matthewjuranek/Documents/NutriSort/cmake-build-debug/_deps
 url(s)=https://github.com/google/googletest/archive/release-1.10.0.tar.gz
 hash=SHA256=9dc9157a9a1551ec7a7e43daea9a694a0bb5fb8bec81235d8a1e6ef64c716dcb
 no_extract=

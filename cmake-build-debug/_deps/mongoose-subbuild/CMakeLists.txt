@@ -1,7 +1,7 @@
 # Distributed under the OSI-approved BSD 3-Clause License.  See accompanying
 # file Copyright.txt or https://cmake.org/licensing for details.
 
-cmake_minimum_required(VERSION 3.28.1)
+cmake_minimum_required(VERSION 3.27.8)
 
 # Reject any attempt to use a toolchain file. We must not use one because
 # we could be downloading it here. If the CMAKE_TOOLCHAIN_FILE environment
@@ -20,8 +20,8 @@ project(mongoose-populate NONE)
 include(ExternalProject)
 ExternalProject_Add(mongoose-populate
                      "UPDATE_DISCONNECTED" "False" "DOWNLOAD_EXTRACT_TIMESTAMP" "TRUE" "EXTERNALPROJECT_INTERNAL_ARGUMENT_SEPARATOR" "URL" "https://github.com/cesanta/mongoose/archive/6.18.tar.gz" "URL_HASH" "SHA256=f5c10346abc9c72f7cac7885d853ca064fb09aad57580433941a8fd7a3543769"
-                    SOURCE_DIR          "C:/Users/matth/CLionProjects/NutriSort/cmake-build-debug/_deps/mongoose-src"
-                    BINARY_DIR          "C:/Users/matth/CLionProjects/NutriSort/cmake-build-debug/_deps/mongoose-build"
+                    SOURCE_DIR          "/Users/matthewjuranek/Documents/NutriSort/cmake-build-debug/_deps/mongoose-src"
+                    BINARY_DIR          "/Users/matthewjuranek/Documents/NutriSort/cmake-build-debug/_deps/mongoose-build"
                     CONFIGURE_COMMAND   ""
                     BUILD_COMMAND       ""
                     INSTALL_COMMAND     ""

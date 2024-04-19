@@ -32,7 +32,7 @@ set(CPR_BUILD_TESTS_SSL OFF)
 
 FetchContent_MakeAvailable(SFML cpr json)
 
-include_directories(${cpr_SOURCE_DIR}/include)  # Placed after FetchContent_MakeAvailable
+include_directories(${cpr_SOURCE_DIR}/include)
 
 add_executable(NutriSort main.cpp Food.h Food.cpp)
 
