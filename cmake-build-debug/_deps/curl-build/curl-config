@@ -21,7 +21,7 @@
 #
 ###########################################################################
 
-prefix=/usr/local
+prefix=C:/Program Files (x86)/Project3DSA
 exec_prefix=${prefix}
 includedir=${prefix}/include
 cppflag_curl_staticlib=
@@ -68,7 +68,7 @@ while test $# -gt 0; do
 
     case "$1" in
     --built-shared)
-        echo yes
+        echo no
         ;;
 
     --ca)
@@ -76,7 +76,7 @@ while test $# -gt 0; do
         ;;
 
     --cc)
-        echo "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc"
+        echo "C:/Program Files/JetBrains/CLion 2024.1/bin/mingw/bin/gcc.exe"
         ;;
 
     --prefix)
@@ -84,7 +84,7 @@ while test $# -gt 0; do
         ;;
 
     --feature|--features)
-        for feature in SSL IPv6 unixsockets libz AsynchDNS alt-svc ""; do
+        for feature in SSL IPv6 AsynchDNS SSPI alt-svc SPNEGO Kerberos NTLM ""; do
             test -n "$feature" && echo "$feature"
         done
         ;;
@@ -155,24 +155,24 @@ while test $# -gt 0; do
         ;;
 
     --libs)
-        if test "X/usr/local/lib" != "X/usr/lib" -a "X/usr/local/lib" != "X/usr/lib64"; then
-           CURLLIBDIR="-L/usr/local/lib "
+        if test "XC:/Program Files (x86)/Project3DSA/lib" != "X/usr/lib" -a "XC:/Program Files (x86)/Project3DSA/lib" != "X/usr/lib64"; then
+           CURLLIBDIR="-LC:/Program Files (x86)/Project3DSA/lib "
         else
            CURLLIBDIR=""
         fi
-        if test "Xyes" = "Xno"; then
-          echo ${CURLLIBDIR}-lcurl  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/System/Library/Frameworks/CoreFoundation.framework /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/System/Library/Frameworks/Security.framework /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/usr/lib/libz.tbd
+        if test "Xno" = "Xno"; then
+          echo ${CURLLIBDIR}-lcurl  -lwinmm -lws2_32 -ladvapi32 -lcrypt32
         else
           echo ${CURLLIBDIR}-lcurl
         fi
         ;;
     --ssl-backends)
-        echo "Secure Transport"
+        echo "Schannel"
         ;;
 
     --static-libs)
-        if test "Xno" != "Xno" ; then
-          echo /usr/local/lib/libcurl.a   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/System/Library/Frameworks/CoreFoundation.framework /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/System/Library/Frameworks/Security.framework /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/usr/lib/libz.tbd
+        if test "Xyes" != "Xno" ; then
+          echo C:/Program Files (x86)/Project3DSA/lib/libcurl.a   -lwinmm -lws2_32 -ladvapi32 -lcrypt32
         else
           echo "curl was built with static libraries disabled" >&2
           exit 1

@@ -1,0 +1,23 @@
+# ninja log v5
+17	294	7352548344014739	curl-populate-prefix/src/curl-populate-stamp/curl-populate-mkdir	75c3b233666d1963
+296	8803	7352548344014739	curl-populate-prefix/src/curl-7.75.0.tar.xz	f0c7935c4fccc666
+8806	9085	7352548431852336	curl-populate-prefix/src/curl-populate-stamp/curl-populate-update	e5f182781d693bb2
+9440	9703	7352548438113337	C:/Users/matth/CLionProjects/NutriSort/cmake-build-debug/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-build	459a594509e107d7
+17	294	7352548344014739	C:/Users/matth/CLionProjects/NutriSort/cmake-build-debug/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-mkdir	75c3b233666d1963
+296	8803	7352548344014739	C:/Users/matth/CLionProjects/NutriSort/cmake-build-debug/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-download	f0c7935c4fccc666
+296	8803	7352548344014739	curl-populate-prefix/src/curl-populate-stamp/curl-populate-download	f0c7935c4fccc666
+8806	9085	7352548431852336	C:/Users/matth/CLionProjects/NutriSort/cmake-build-debug/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-update	e5f182781d693bb2
+9086	9288	7352548434074025	C:/Users/matth/CLionProjects/NutriSort/cmake-build-debug/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-patch	4cbdd1e2160d0dc1
+296	8803	7352548344014739	C:/Users/matth/CLionProjects/NutriSort/cmake-build-debug/_deps/curl-subbuild/curl-populate-prefix/src/curl-7.75.0.tar.xz	f0c7935c4fccc666
+9086	9288	7352548434074025	curl-populate-prefix/src/curl-populate-stamp/curl-populate-patch	4cbdd1e2160d0dc1
+9977	10171	7352548442925483	curl-populate-prefix/src/curl-populate-stamp/curl-populate-test	36db6740e33b7cda
+9288	9440	7352548435495477	curl-populate-prefix/src/curl-populate-stamp/curl-populate-configure	7714027891ccf2eb
+9288	9440	7352548435495477	C:/Users/matth/CLionProjects/NutriSort/cmake-build-debug/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-configure	7714027891ccf2eb
+9440	9703	7352548438113337	curl-populate-prefix/src/curl-populate-stamp/curl-populate-build	459a594509e107d7
+9704	9977	7352548440853176	curl-populate-prefix/src/curl-populate-stamp/curl-populate-install	6e9050e72dae2d40
+9704	9977	7352548440853176	C:/Users/matth/CLionProjects/NutriSort/cmake-build-debug/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-install	6e9050e72dae2d40
+9977	10171	7352548442925483	C:/Users/matth/CLionProjects/NutriSort/cmake-build-debug/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-test	36db6740e33b7cda
+10172	10333	7352548444518799	CMakeFiles/curl-populate-complete	dabdb2fc9c8e60aa
+10172	10333	7352548444518799	curl-populate-prefix/src/curl-populate-stamp/curl-populate-done	dabdb2fc9c8e60aa
+10172	10333	7352548444518799	C:/Users/matth/CLionProjects/NutriSort/cmake-build-debug/_deps/curl-subbuild/CMakeFiles/curl-populate-complete	dabdb2fc9c8e60aa
+10172	10333	7352548444518799	C:/Users/matth/CLionProjects/NutriSort/cmake-build-debug/_deps/curl-subbuild/curl-populate-prefix/src/curl-populate-stamp/curl-populate-done	dabdb2fc9c8e60aa
